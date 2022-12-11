@@ -1,0 +1,114 @@
+# pydisasm version 5.0.11
+# Python bytecode 3.8 (3413)
+# Disassembled from Python 3.8.11 (default, Aug 17 2021, 15:56:41) 
+# [GCC 10.2.1 20210110]
+# Timestamp in code: 1660247343 (2022-08-11 19:49:03)
+# Source code size mod 2**32: 534 bytes
+# Method Name:       <module>
+# Filename:          testbed_py/panela_colors.py
+# Argument count:    0
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  0
+# Stack size:        3
+# Flags:             0x00000040 (NOFREE)
+# First Line:        2
+# Constants:
+#    0: None
+#    1: <code object put_point at 0x7f86b5fad660, file "testbed_py/panela_colors.py", line 2>
+#    2: 'put_point'
+#    3: (None, None, None)
+# Names:
+#    0: put_point
+  2:           0 LOAD_CONST           ((None, None, None))
+               2 LOAD_CONST           (<code object put_point at 0x7f86b5fad660, file "testbed_py/panela_colors.py", line 2>)
+               4 LOAD_CONST           ('put_point')
+               6 MAKE_FUNCTION        (default)
+               8 STORE_NAME           (put_point)
+              10 LOAD_CONST           (None)
+              12 RETURN_VALUE
+
+
+# Method Name:       put_point
+# Filename:          testbed_py/panela_colors.py
+# Argument count:    6
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  6
+# Stack size:        5
+# Flags:             0x00000043 (NOFREE | NEWLOCALS | OPTIMIZED)
+# First Line:        2
+# Constants:
+#    0: '\n    Puts character with color and background color on the field.\n    Char can be a Point or a character.\n    '
+#    1: None
+#    2: ('char', 'foreground', 'background')
+# Names:
+#    0: isinstance
+#    1: Point
+#    2: field
+#    3: background
+#    4: foreground
+# Varnames:
+#	self, col, row, char, color, background
+# Positional arguments:
+#	self, col, row, char, color, background
+  8:           0 LOAD_GLOBAL          (isinstance)
+               2 LOAD_FAST            (char)
+               4 LOAD_GLOBAL          (Point)
+               6 CALL_FUNCTION        2
+               8 POP_JUMP_IF_FALSE    (to 26)
+
+  9:          10 LOAD_FAST            (char)
+              12 LOAD_FAST            (self)
+              14 LOAD_ATTR            (field)
+              16 LOAD_FAST            (row)
+              18 BINARY_SUBSCR
+              20 LOAD_FAST            (col)
+              22 STORE_SUBSCR
+              24 JUMP_FORWARD         (to 100)
+
+ 10:     >>   26 LOAD_FAST            (char)
+              28 LOAD_CONST           (None)
+              30 COMPARE_OP           (is)
+              32 POP_JUMP_IF_FALSE    (to 76)
+
+ 11:          34 LOAD_FAST            (background)
+              36 POP_JUMP_IF_FALSE    (to 54)
+
+ 12:          38 LOAD_FAST            (background)
+              40 LOAD_FAST            (self)
+              42 LOAD_ATTR            (field)
+              44 LOAD_FAST            (row)
+              46 BINARY_SUBSCR
+              48 LOAD_FAST            (col)
+              50 BINARY_SUBSCR
+              52 STORE_ATTR           (background)
+
+ 13:     >>   54 LOAD_FAST            (color)
+              56 POP_JUMP_IF_FALSE    (to 100)
+
+ 14:          58 LOAD_FAST            (color)
+              60 LOAD_FAST            (self)
+              62 LOAD_ATTR            (field)
+              64 LOAD_FAST            (row)
+              66 BINARY_SUBSCR
+              68 LOAD_FAST            (col)
+              70 BINARY_SUBSCR
+              72 STORE_ATTR           (foreground)
+              74 JUMP_FORWARD         (to 100)
+
+ 16:     >>   76 LOAD_GLOBAL          (Point)
+              78 LOAD_FAST            (char)
+              80 LOAD_FAST            (color)
+              82 LOAD_FAST            (background)
+              84 LOAD_CONST           (('char', 'foreground', 'background'))
+              86 CALL_FUNCTION_KW     (3 total positional and keyword args)
+              88 LOAD_FAST            (self)
+              90 LOAD_ATTR            (field)
+              92 LOAD_FAST            (row)
+              94 BINARY_SUBSCR
+              96 LOAD_FAST            (col)
+              98 STORE_SUBSCR
+         >>  100 LOAD_CONST           (None)
+             102 RETURN_VALUE
+

@@ -1,0 +1,341 @@
+# pydisasm version 5.0.11
+# Python bytecode 3.8 (3413)
+# Disassembled from Python 3.8.11 (default, Aug 17 2021, 15:56:41) 
+# [GCC 10.2.1 20210110]
+# Timestamp in code: 1660247019 (2022-08-11 19:43:39)
+# Source code size mod 2**32: 2681 bytes
+# Method Name:       <module>
+# Filename:          testbed_py/task_executor.py
+# Argument count:    0
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  0
+# Stack size:        2
+# Flags:             0x00000040 (NOFREE)
+# First Line:        2
+# Constants:
+#    0: <code object _get_loop_items at 0x7ff2c4fac710, file "testbed_py/task_executor.py", line 2>
+#    1: '_get_loop_items'
+#    2: None
+# Names:
+#    0: _get_loop_items
+  2:           0 LOAD_CONST           (<code object _get_loop_items at 0x7ff2c4fac710, file "testbed_py/task_executor.py", line 2>)
+               2 LOAD_CONST           ('_get_loop_items')
+               4 MAKE_FUNCTION        (Neither defaults, keyword-only args, annotations, nor closures)
+               6 STORE_NAME           (_get_loop_items)
+               8 LOAD_CONST           (None)
+              10 RETURN_VALUE
+
+
+# Method Name:       _get_loop_items
+# Filename:          testbed_py/task_executor.py
+# Argument count:    1
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  7
+# Stack size:        6
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        2
+# Constants:
+#    0: '\n    Loads a lookup plugin to handle the with_* portion of a task (if specified),\n    and returns the items result.\n    '
+#    1: 'ansible_search_path'
+#    2: ('loader', 'variables')
+#    3: None
+#    4: '_ansible_loop_cache'
+#    5: True
+#    6: 'first_found'
+#    7: False
+#    8: ('terms', 'templar', 'fail_on_undefined', 'convert_bare')
+#    9: <code object <listcomp> at 0x7ff2c4fac7c0, file "testbed_py/task_executor.py", line 31>
+#   10: '_get_loop_items.<locals>.<listcomp>'
+#   11: ('loader', 'templar')
+#   12: ('template', 'var', 'file')
+#   13: '_subdir'
+#   14: 's'
+#   15: ('terms', 'variables', 'wantlist')
+#   16: "Unexpected failure in finding the lookup named '%s' in the available lookup plugins"
+#   17: "Invalid data passed to 'loop', it requires a list, got this instead: %s. Hint: If you passed a list/dict of just one element, try adding wantlist=True to your lookup invocation or use q/query instead of lookup."
+# Names:
+#    0: _task
+#    1: get_search_path
+#    2: _job_vars
+#    3: _loader
+#    4: get_basedir
+#    5: append
+#    6: Templar
+#    7: get
+#    8: loop_with
+#    9: _shared_loader_obj
+#   10: lookup_loader
+#   11: listify_lookup_plugin_terms
+#   12: loop
+#   13: action
+#   14: setattr
+#   15: wrap_var
+#   16: run
+#   17: AnsibleError
+#   18: template
+#   19: isinstance
+#   20: list
+# Varnames:
+#	self, items, loop_cache, fail, loop_terms, mylookup, subdir
+# Positional arguments:
+#	self
+# Local variables:
+#    1: items
+#    2: loop_cache
+#    3: fail
+#    4: loop_terms
+#    5: mylookup
+#    6: subdir
+# Cell variables:
+#    0: templar
+  9:           0 LOAD_FAST            (self)
+               2 LOAD_ATTR            (_task)
+               4 LOAD_METHOD          (get_search_path)
+               6 CALL_METHOD          0
+               8 LOAD_FAST            (self)
+              10 LOAD_ATTR            (_job_vars)
+              12 LOAD_CONST           ('ansible_search_path')
+              14 STORE_SUBSCR
+
+ 12:          16 LOAD_FAST            (self)
+              18 LOAD_ATTR            (_loader)
+              20 LOAD_METHOD          (get_basedir)
+              22 CALL_METHOD          0
+              24 LOAD_FAST            (self)
+              26 LOAD_ATTR            (_job_vars)
+              28 LOAD_CONST           ('ansible_search_path')
+              30 BINARY_SUBSCR
+              32 COMPARE_OP           (not-in)
+              34 POP_JUMP_IF_FALSE    (to 58)
+
+ 13:          36 LOAD_FAST            (self)
+              38 LOAD_ATTR            (_job_vars)
+              40 LOAD_CONST           ('ansible_search_path')
+              42 BINARY_SUBSCR
+              44 LOAD_METHOD          (append)
+              46 LOAD_FAST            (self)
+              48 LOAD_ATTR            (_loader)
+              50 LOAD_METHOD          (get_basedir)
+              52 CALL_METHOD          0
+              54 CALL_METHOD          1
+              56 POP_TOP
+
+ 15:     >>   58 LOAD_GLOBAL          (Templar)
+              60 LOAD_FAST            (self)
+              62 LOAD_ATTR            (_loader)
+              64 LOAD_FAST            (self)
+              66 LOAD_ATTR            (_job_vars)
+              68 LOAD_CONST           (('loader', 'variables'))
+              70 CALL_FUNCTION_KW     (2 total positional and keyword args)
+              72 STORE_DEREF          (templar)
+
+ 16:          74 LOAD_CONST           (None)
+              76 STORE_FAST           (items)
+
+ 17:          78 LOAD_FAST            (self)
+              80 LOAD_ATTR            (_job_vars)
+              82 LOAD_METHOD          (get)
+              84 LOAD_CONST           ('_ansible_loop_cache')
+              86 CALL_METHOD          1
+              88 STORE_FAST           (loop_cache)
+
+ 18:          90 LOAD_FAST            (loop_cache)
+              92 LOAD_CONST           (None)
+              94 COMPARE_OP           (is-not)
+              96 POP_JUMP_IF_FALSE    (to 104)
+
+ 21:          98 LOAD_FAST            (loop_cache)
+             100 STORE_FAST           (items)
+             102 JUMP_FORWARD         (to 356)
+
+ 22:     >>  104 LOAD_FAST            (self)
+             106 LOAD_ATTR            (_task)
+             108 LOAD_ATTR            (loop_with)
+             110 EXTENDED_ARG         (256)
+             112 POP_JUMP_IF_FALSE    (to 304)
+
+ 23:         114 LOAD_FAST            (self)
+             116 LOAD_ATTR            (_task)
+             118 LOAD_ATTR            (loop_with)
+             120 LOAD_FAST            (self)
+             122 LOAD_ATTR            (_shared_loader_obj)
+             124 LOAD_ATTR            (lookup_loader)
+             126 COMPARE_OP           (in)
+             128 EXTENDED_ARG         (256)
+             130 POP_JUMP_IF_FALSE    (to 286)
+
+ 24:         132 LOAD_CONST           (True)
+             134 STORE_FAST           (fail)
+
+ 25:         136 LOAD_FAST            (self)
+             138 LOAD_ATTR            (_task)
+             140 LOAD_ATTR            (loop_with)
+             142 LOAD_CONST           ('first_found')
+             144 COMPARE_OP           (==)
+             146 POP_JUMP_IF_FALSE    (to 152)
+
+ 27:         148 LOAD_CONST           (False)
+             150 STORE_FAST           (fail)
+
+ 29:     >>  152 LOAD_GLOBAL          (listify_lookup_plugin_terms)
+             154 LOAD_FAST            (self)
+             156 LOAD_ATTR            (_task)
+             158 LOAD_ATTR            (loop)
+             160 LOAD_DEREF           (templar)
+             162 LOAD_FAST            (fail)
+             164 LOAD_CONST           (False)
+             166 LOAD_CONST           (('terms', 'templar', 'fail_on_undefined', 'convert_bare'))
+             168 CALL_FUNCTION_KW     (4 total positional and keyword args)
+             170 STORE_FAST           (loop_terms)
+
+ 30:         172 LOAD_FAST            (fail)
+             174 POP_JUMP_IF_TRUE     (to 194)
+
+ 31:         176 LOAD_CLOSURE         (templar)
+             178 BUILD_TUPLE          1
+             180 LOAD_CONST           (<code object <listcomp> at 0x7ff2c4fac7c0, file "testbed_py/task_executor.py", line 31>)
+             182 LOAD_CONST           ('_get_loop_items.<locals>.<listcomp>')
+             184 MAKE_FUNCTION        (closure)
+             186 LOAD_FAST            (loop_terms)
+             188 GET_ITER
+             190 CALL_FUNCTION        1
+             192 STORE_FAST           (loop_terms)
+
+ 34:     >>  194 LOAD_FAST            (self)
+             196 LOAD_ATTR            (_shared_loader_obj)
+             198 LOAD_ATTR            (lookup_loader)
+             200 LOAD_ATTR            (get)
+             202 LOAD_FAST            (self)
+             204 LOAD_ATTR            (_task)
+             206 LOAD_ATTR            (loop_with)
+             208 LOAD_FAST            (self)
+             210 LOAD_ATTR            (_loader)
+             212 LOAD_DEREF           (templar)
+             214 LOAD_CONST           (('loader', 'templar'))
+             216 CALL_FUNCTION_KW     (3 total positional and keyword args)
+             218 STORE_FAST           (mylookup)
+
+ 37:         220 LOAD_CONST           (('template', 'var', 'file'))
+             222 GET_ITER
+         >>  224 FOR_ITER             (to 246)
+             226 STORE_FAST           (subdir)
+
+ 38:         228 LOAD_FAST            (subdir)
+             230 LOAD_FAST            (self)
+             232 LOAD_ATTR            (_task)
+             234 LOAD_ATTR            (action)
+             236 COMPARE_OP           (in)
+             238 POP_JUMP_IF_FALSE    (to 224)
+
+ 39:         240 POP_TOP
+             242 JUMP_ABSOLUTE        (to 246)
+             244 JUMP_ABSOLUTE        (to 224)
+
+ 40:     >>  246 LOAD_GLOBAL          (setattr)
+             248 LOAD_FAST            (mylookup)
+             250 LOAD_CONST           ('_subdir')
+             252 LOAD_FAST            (subdir)
+             254 LOAD_CONST           ('s')
+             256 BINARY_ADD
+             258 CALL_FUNCTION        3
+             260 POP_TOP
+
+ 43:         262 LOAD_GLOBAL          (wrap_var)
+             264 LOAD_FAST            (mylookup)
+             266 LOAD_ATTR            (run)
+             268 LOAD_FAST            (loop_terms)
+             270 LOAD_FAST            (self)
+             272 LOAD_ATTR            (_job_vars)
+             274 LOAD_CONST           (True)
+             276 LOAD_CONST           (('terms', 'variables', 'wantlist'))
+             278 CALL_FUNCTION_KW     (3 total positional and keyword args)
+             280 CALL_FUNCTION        1
+             282 STORE_FAST           (items)
+             284 JUMP_FORWARD         (to 302)
+
+ 45:     >>  286 LOAD_GLOBAL          (AnsibleError)
+             288 LOAD_CONST           ("Unexpected failure in finding the lookup named '%s' in the available lookup plugins")
+             290 LOAD_FAST            (self)
+             292 LOAD_ATTR            (_task)
+             294 LOAD_ATTR            (loop_with)
+             296 BINARY_MODULO
+             298 CALL_FUNCTION        1
+             300 RAISE_VARARGS        (exception instance)
+         >>  302 JUMP_FORWARD         (to 356)
+
+ 47:     >>  304 LOAD_FAST            (self)
+             306 LOAD_ATTR            (_task)
+             308 LOAD_ATTR            (loop)
+             310 LOAD_CONST           (None)
+             312 COMPARE_OP           (is-not)
+             314 EXTENDED_ARG         (256)
+             316 POP_JUMP_IF_FALSE    (to 356)
+
+ 48:         318 LOAD_DEREF           (templar)
+             320 LOAD_METHOD          (template)
+             322 LOAD_FAST            (self)
+             324 LOAD_ATTR            (_task)
+             326 LOAD_ATTR            (loop)
+             328 CALL_METHOD          1
+             330 STORE_FAST           (items)
+
+ 49:         332 LOAD_GLOBAL          (isinstance)
+             334 LOAD_FAST            (items)
+             336 LOAD_GLOBAL          (list)
+             338 CALL_FUNCTION        2
+             340 EXTENDED_ARG         (256)
+             342 POP_JUMP_IF_TRUE     (to 356)
+
+ 50:         344 LOAD_GLOBAL          (AnsibleError)
+
+ 51:         346 LOAD_CONST           ("Invalid data passed to 'loop', it requires a list, got this instead: %s. Hint: If you passed a list/dict of just one element, try adding wantlist=True to your lookup invocation or use q/query instead of lookup.")
+
+ 53:         348 LOAD_FAST            (items)
+
+ 51:         350 BINARY_MODULO
+
+ 50:         352 CALL_FUNCTION        1
+             354 RAISE_VARARGS        (exception instance)
+
+ 56:     >>  356 LOAD_FAST            (items)
+             358 RETURN_VALUE
+
+
+# Method Name:       <listcomp>
+# Filename:          testbed_py/task_executor.py
+# Argument count:    1
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  2
+# Stack size:        5
+# Flags:             0x00000013 (NESTED | NEWLOCALS | OPTIMIZED)
+# First Line:        31
+# Names:
+#    0: is_template
+# Varnames:
+#	.0, t
+# Positional arguments:
+#	.0
+# Local variables:
+#    1: t
+# Free variables:
+#    0: templar
+ 31:           0 BUILD_LIST           0
+               2 LOAD_FAST            (.0)
+         >>    4 FOR_ITER             (to 24)
+
+ 31:           6 STORE_FAST           (t)
+
+ 31:           8 LOAD_DEREF           (templar)
+              10 LOAD_METHOD          (is_template)
+              12 LOAD_FAST            (t)
+              14 CALL_METHOD          1
+              16 POP_JUMP_IF_TRUE     (to 4)
+
+ 31:          18 LOAD_FAST            (t)
+              20 LIST_APPEND          2
+              22 JUMP_ABSOLUTE        (to 4)
+         >>   24 RETURN_VALUE
+

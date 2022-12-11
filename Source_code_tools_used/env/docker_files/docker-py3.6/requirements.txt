@@ -1,0 +1,9 @@
+click==8.0.1
+decompyle3==3.7.5
+importlib-metadata==4.6.1
+six==1.16.0
+spark-parser==1.8.9
+typing-extensions==3.10.0.0
+uncompyle6==3.7.4
+xdis==5.0.11
+zipp==3.5.0

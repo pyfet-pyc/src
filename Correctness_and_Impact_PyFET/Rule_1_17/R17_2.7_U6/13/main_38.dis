@@ -1,0 +1,113 @@
+# pydisasm version 5.0.11
+# Python bytecode 3.8 (3413)
+# Disassembled from Python 3.8.11 (default, Aug 17 2021, 15:56:41) 
+# [GCC 10.2.1 20210110]
+# Timestamp in code: 1660246929 (2022-08-11 19:42:09)
+# Source code size mod 2**32: 350 bytes
+# Method Name:       <module>
+# Filename:          testbed_py/fw_versions.py
+# Argument count:    0
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  0
+# Stack size:        3
+# Flags:             0x00000040 (NOFREE)
+# First Line:        2
+# Constants:
+#    0: None
+#    1: <code object build_fw_dict at 0x7f5f636ac660, file "testbed_py/fw_versions.py", line 2>
+#    2: 'build_fw_dict'
+#    3: (None,)
+# Names:
+#    0: build_fw_dict
+  2:           0 LOAD_CONST           ((None,))
+               2 LOAD_CONST           (<code object build_fw_dict at 0x7f5f636ac660, file "testbed_py/fw_versions.py", line 2>)
+               4 LOAD_CONST           ('build_fw_dict')
+               6 MAKE_FUNCTION        (default)
+               8 STORE_NAME           (build_fw_dict)
+              10 LOAD_CONST           (None)
+              12 RETURN_VALUE
+
+
+# Method Name:       build_fw_dict
+# Filename:          testbed_py/fw_versions.py
+# Argument count:    2
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  6
+# Stack size:        4
+# Flags:             0x00000043 (NOFREE | NEWLOCALS | OPTIMIZED)
+# First Line:        2
+# Constants:
+#    0: None
+#    1: 0
+# Names:
+#    0: defaultdict
+#    1: set
+#    2: brand
+#    3: address
+#    4: subAddress
+#    5: add
+#    6: fwVersion
+#    7: dict
+# Varnames:
+#	fw_versions, filter_brand, fw_versions_dict, fw, addr, sub_addr
+# Positional arguments:
+#	fw_versions, filter_brand
+# Local variables:
+#    2: fw_versions_dict
+#    3: fw
+#    4: addr
+#    5: sub_addr
+  3:           0 LOAD_GLOBAL          (defaultdict)
+               2 LOAD_GLOBAL          (set)
+               4 CALL_FUNCTION        1
+               6 STORE_FAST           (fw_versions_dict)
+
+  4:           8 LOAD_FAST            (fw_versions)
+              10 GET_ITER
+         >>   12 FOR_ITER             (to 82)
+              14 STORE_FAST           (fw)
+
+  5:          16 LOAD_FAST            (filter_brand)
+              18 LOAD_CONST           (None)
+              20 COMPARE_OP           (is)
+              22 POP_JUMP_IF_TRUE     (to 34)
+              24 LOAD_FAST            (fw)
+              26 LOAD_ATTR            (brand)
+              28 LOAD_FAST            (filter_brand)
+              30 COMPARE_OP           (==)
+              32 POP_JUMP_IF_FALSE    (to 12)
+
+  6:     >>   34 LOAD_FAST            (fw)
+              36 LOAD_ATTR            (address)
+              38 STORE_FAST           (addr)
+
+  7:          40 LOAD_FAST            (fw)
+              42 LOAD_ATTR            (subAddress)
+              44 LOAD_CONST           (0)
+              46 COMPARE_OP           (!=)
+              48 POP_JUMP_IF_FALSE    (to 56)
+              50 LOAD_FAST            (fw)
+              52 LOAD_ATTR            (subAddress)
+              54 JUMP_FORWARD         (to 58)
+         >>   56 LOAD_CONST           (None)
+         >>   58 STORE_FAST           (sub_addr)
+
+  8:          60 LOAD_FAST            (fw_versions_dict)
+              62 LOAD_FAST            (addr)
+              64 LOAD_FAST            (sub_addr)
+              66 BUILD_TUPLE          2
+              68 BINARY_SUBSCR
+              70 LOAD_METHOD          (add)
+              72 LOAD_FAST            (fw)
+              74 LOAD_ATTR            (fwVersion)
+              76 CALL_METHOD          1
+              78 POP_TOP
+              80 JUMP_ABSOLUTE        (to 12)
+
+  9:     >>   82 LOAD_GLOBAL          (dict)
+              84 LOAD_FAST            (fw_versions_dict)
+              86 CALL_FUNCTION        1
+              88 RETURN_VALUE
+

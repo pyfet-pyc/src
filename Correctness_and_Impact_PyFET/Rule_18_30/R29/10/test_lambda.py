@@ -1,0 +1,23 @@
+class TestLambdaAPI(unittest.TestCase):
+    CODE_SIZE = 50
+    CODE_SHA_256 = "/u60ZpAA9bzZPVwb8d4390i5oqP1YAObUwV03CZvsWA="
+    UPDATED_CODE_SHA_256 = "/u6A="
+    MEMORY_SIZE = 128
+    ROLE = "arn:aws:iam::123456:role/role-name"
+    LAST_MODIFIED = datetime.datetime.utcnow()
+    TRACING_CONFIG = {"Mode": "PassThrough"}
+    REVISION_ID = "e54dbcf8-e3ef-44ab-9af7-8dbef510608a"
+    HANDLER = "index.handler"
+    RUNTIME = "node.js4.3"
+    TIMEOUT = 60  # Default value, hardcoded
+    FUNCTION_NAME = "test1"
+    ALIAS_NAME = "alias1"
+    ALIAS2_NAME = "alias2"
+    RESOURCENOTFOUND_EXCEPTION = "ResourceNotFoundException"
+    RESOURCENOTFOUND_MESSAGE = "Function not found: %s"
+    ALIASEXISTS_EXCEPTION = "ResourceConflictException"
+    ALIASEXISTS_MESSAGE = "Alias already exists: %s"
+    ALIASNOTFOUND_EXCEPTION = "ResourceNotFoundException"
+    ALIASNOTFOUND_MESSAGE = "Alias not found: %s"
+    TEST_UUID = "Test"
+    TAGS = {"hello", "world", "env", "prod"}

@@ -1,0 +1,64 @@
+# pydisasm version 5.0.11
+# Python bytecode 3.8 (3413)
+# Disassembled from Python 3.8.11 (default, Aug 17 2021, 15:56:41) 
+# [GCC 10.2.1 20210110]
+# Timestamp in code: 1660246605 (2022-08-11 19:36:45)
+# Source code size mod 2**32: 1489 bytes
+# Method Name:       <module>
+# Filename:          testbed_py/_pydecimal.py
+# Argument count:    0
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  0
+# Stack size:        3
+# Flags:             0x00000040 (NOFREE)
+# First Line:        1
+# Constants:
+#    0: None
+#    1: <code object localcontext at 0x7f364e6cd660, file "testbed_py/_pydecimal.py", line 1>
+#    2: 'localcontext'
+#    3: (None,)
+# Names:
+#    0: localcontext
+  1:           0 LOAD_CONST           ((None,))
+               2 LOAD_CONST           (<code object localcontext at 0x7f364e6cd660, file "testbed_py/_pydecimal.py", line 1>)
+               4 LOAD_CONST           ('localcontext')
+               6 MAKE_FUNCTION        (default)
+               8 STORE_NAME           (localcontext)
+              10 LOAD_CONST           (None)
+              12 RETURN_VALUE
+
+
+# Method Name:       localcontext
+# Filename:          testbed_py/_pydecimal.py
+# Argument count:    1
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  1
+# Stack size:        2
+# Flags:             0x00000043 (NOFREE | NEWLOCALS | OPTIMIZED)
+# First Line:        1
+# Constants:
+#    0: 'Return a context manager for a copy of the supplied context\n\n    Uses a copy of the current context if no context is specified\n    The returned context manager creates a local decimal context\n    in a with statement:\n        def sin(x):\n             with localcontext() as ctx:\n                 ctx.prec += 2\n                 # Rest of sin calculation algorithm\n                 # uses a precision 2 greater than normal\n             return +s  # Convert result to normal precision\n\n         def sin(x):\n             with localcontext(ExtendedContext):\n                 # Rest of sin calculation algorithm\n                 # uses the Extended Context from the\n                 # General Decimal Arithmetic Specification\n             return +s  # Convert result to normal context\n\n    >>> setcontext(DefaultContext)\n    >>> print(getcontext().prec)\n    28\n    >>> with localcontext():\n    ...     ctx = getcontext()\n    ...     ctx.prec += 2\n    ...     print(ctx.prec)\n    ...\n    30\n    >>> with localcontext(ExtendedContext):\n    ...     print(getcontext().prec)\n    ...\n    9\n    >>> print(getcontext().prec)\n    28\n    '
+#    1: None
+# Names:
+#    0: getcontext
+#    1: _ContextManager
+# Varnames:
+#	ctx
+# Positional arguments:
+#	ctx
+ 37:           0 LOAD_FAST            (ctx)
+               2 LOAD_CONST           (None)
+               4 COMPARE_OP           (is)
+               6 POP_JUMP_IF_FALSE    (to 14)
+
+ 37:           8 LOAD_GLOBAL          (getcontext)
+              10 CALL_FUNCTION        0
+              12 STORE_FAST           (ctx)
+
+ 38:     >>   14 LOAD_GLOBAL          (_ContextManager)
+              16 LOAD_FAST            (ctx)
+              18 CALL_FUNCTION        1
+              20 RETURN_VALUE
+

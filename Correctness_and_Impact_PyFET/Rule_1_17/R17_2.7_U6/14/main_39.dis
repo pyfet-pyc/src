@@ -1,0 +1,80 @@
+# pydisasm version 5.0.11
+# Python bytecode 3.9 (3425)
+# Disassembled from Python 3.9.6 (default, Aug 17 2021, 15:37:33) 
+# [GCC 10.2.1 20210110]
+# Timestamp in code: 1660361187 (2022-08-13 03:26:27)
+# Source code size mod 2**32: 173 bytes
+# Method Name:       <module>
+# Filename:          testbed_py/test_cat_accessor.py
+# Argument count:    0
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  0
+# Stack size:        2
+# Flags:             0x00000040 (NOFREE)
+# First Line:        1
+# Constants:
+#    0: <code object test_cat_accessor_api at 0x7f9cf57697c0, file "testbed_py/test_cat_accessor.py", line 1>
+#    1: 'test_cat_accessor_api'
+#    2: None
+# Names:
+#    0: test_cat_accessor_api
+  1:           0 LOAD_CONST           (<code object test_cat_accessor_api at 0x7f9cf57697c0, file "testbed_py/test_cat_accessor.py", line 1>)
+               2 LOAD_CONST           ('test_cat_accessor_api')
+               4 MAKE_FUNCTION        (Neither defaults, keyword-only args, annotations, nor closures)
+               6 STORE_NAME           (test_cat_accessor_api)
+               8 LOAD_CONST           (None)
+              10 RETURN_VALUE
+
+
+# Method Name:       test_cat_accessor_api
+# Filename:          testbed_py/test_cat_accessor.py
+# Argument count:    1
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  3
+# Stack size:        3
+# Flags:             0x00000043 (NOFREE | NEWLOCALS | OPTIMIZED)
+# First Line:        1
+# Constants:
+#    0: None
+#    1: 'aabbcde'
+#    2: 'category'
+#    3: 1
+# Names:
+#    0: Series
+#    1: cat
+#    2: CategoricalAccessor
+#    3: list
+#    4: astype
+# Varnames:
+#	self, ser, invalid
+# Positional arguments:
+#	self
+# Local variables:
+#    1: ser
+#    2: invalid
+  4:           0 LOAD_GLOBAL          (Series)
+               2 LOAD_ATTR            (cat)
+               4 LOAD_GLOBAL          (CategoricalAccessor)
+               6 IS_OP                (is)
+               8 POP_JUMP_IF_FALSE    (to 28)
+
+  5:          10 LOAD_GLOBAL          (Series)
+              12 LOAD_GLOBAL          (list)
+              14 LOAD_CONST           ('aabbcde')
+              16 CALL_FUNCTION        1
+              18 CALL_FUNCTION        1
+              20 LOAD_METHOD          (astype)
+              22 LOAD_CONST           ('category')
+              24 CALL_METHOD          1
+              26 STORE_FAST           (ser)
+
+  7:     >>   28 LOAD_GLOBAL          (Series)
+              30 LOAD_CONST           (1)
+              32 BUILD_LIST           1
+              34 CALL_FUNCTION        1
+              36 STORE_FAST           (invalid)
+              38 LOAD_CONST           (None)
+              40 RETURN_VALUE
+

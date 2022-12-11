@@ -1,0 +1,5 @@
+Click==7.0
+six==1.16.0
+spark-parser==1.8.9
+uncompyle6==3.7.4
+xdis==5.0.13

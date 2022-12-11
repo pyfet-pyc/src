@@ -1,0 +1,64 @@
+# pydisasm version 5.0.11
+# Python bytecode 3.9 (3425)
+# Disassembled from Python 3.9.6 (default, Aug 17 2021, 15:37:33) 
+# [GCC 10.2.1 20210110]
+# Timestamp in code: 1660606117 (2022-08-15 23:28:37)
+# Source code size mod 2**32: 275 bytes
+# Method Name:       <module>
+# Filename:          20.py
+# Argument count:    0
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  0
+# Stack size:        3
+# Flags:             0x00000040 (NOFREE)
+# First Line:        1
+# Constants:
+#    0: False
+#    1: <code object gernet_m at 0x7fbbd37e07c0, file "20.py", line 1>
+#    2: 'gernet_m'
+#    3: None
+#    4: (False,)
+# Names:
+#    0: gernet_m
+  1:           0 LOAD_CONST           ((False,))
+               2 LOAD_CONST           (<code object gernet_m at 0x7fbbd37e07c0, file "20.py", line 1>)
+               4 LOAD_CONST           ('gernet_m')
+               6 MAKE_FUNCTION        (default)
+               8 STORE_NAME           (gernet_m)
+              10 LOAD_CONST           (None)
+              12 RETURN_VALUE
+
+
+# Method Name:       gernet_m
+# Filename:          20.py
+# Argument count:    1
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  2
+# Stack size:        4
+# Flags:             0x0000004b (NOFREE | VARKEYWORDS | NEWLOCALS | OPTIMIZED)
+# First Line:        1
+# Constants:
+#    0: ' GEResNet-Medium (GENet-Normal from official impl)\n    `Neural Architecture Design for GPU-Efficient Networks` - https://arxiv.org/abs/2006.14090\n    '
+#    1: 'gernet_m'
+#    2: 'pretrained'
+#    3: ('gernet_m',)
+# Names:
+#    0: _create_byobnet
+# Varnames:
+#	pretrained, kwargs
+# Positional arguments:
+#	pretrained
+# Local variables:
+#    1: kwargs
+  5:           0 LOAD_GLOBAL          (_create_byobnet)
+               2 LOAD_CONST           (('gernet_m',))
+               4 LOAD_CONST           ('pretrained')
+               6 LOAD_FAST            (pretrained)
+               8 BUILD_MAP            1
+              10 LOAD_FAST            (kwargs)
+              12 DICT_MERGE           1
+              14 CALL_FUNCTION_EX     (keyword and positional arguments)
+              16 RETURN_VALUE
+

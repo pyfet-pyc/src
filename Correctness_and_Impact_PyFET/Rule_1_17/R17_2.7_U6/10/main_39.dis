@@ -1,0 +1,332 @@
+# pydisasm version 5.0.11
+# Python bytecode 3.9 (3425)
+# Disassembled from Python 3.9.6 (default, Aug 17 2021, 15:37:33) 
+# [GCC 10.2.1 20210110]
+# Timestamp in code: 1660247541 (2022-08-11 19:52:21)
+# Source code size mod 2**32: 1741 bytes
+# Method Name:       <module>
+# Filename:          testbed_py/generic_proxy.py
+# Argument count:    0
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  0
+# Stack size:        5
+# Flags:             0x00000040 (NOFREE)
+# First Line:        3
+# Constants:
+#    0: None
+#    1: ('request_headers', 'response')
+#    2: <code object append_cors_headers at 0x7f48c603e870, file "testbed_py/generic_proxy.py", line 2>
+#    3: 'append_cors_headers'
+#    4: (None, None)
+# Names:
+#    0: Dict
+#    1: Union
+#    2: Response
+#    3: LambdaResponse
+#    4: append_cors_headers
+  2:           0 LOAD_CONST           ((None, None))
+
+  3:           2 LOAD_NAME            (Dict)
+               4 LOAD_NAME            (Union)
+               6 LOAD_NAME            (Response)
+               8 LOAD_NAME            (LambdaResponse)
+              10 BUILD_TUPLE          2
+              12 BINARY_SUBSCR
+
+  2:          14 LOAD_CONST           (('request_headers', 'response'))
+              16 BUILD_CONST_KEY_MAP  2
+              18 LOAD_CONST           (<code object append_cors_headers at 0x7f48c603e870, file "testbed_py/generic_proxy.py", line 2>)
+              20 LOAD_CONST           ('append_cors_headers')
+              22 MAKE_FUNCTION        (default, annotation)
+              24 STORE_NAME           (append_cors_headers)
+              26 LOAD_CONST           (None)
+              28 RETURN_VALUE
+
+
+# Method Name:       append_cors_headers
+# Filename:          testbed_py/generic_proxy.py
+# Argument count:    2
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  7
+# Stack size:        5
+# Flags:             0x00000043 (NOFREE | NEWLOCALS | OPTIMIZED)
+# First Line:        2
+# Constants:
+#    0: None
+#    1: <code object <listcomp> at 0x7f48c603e710, file "testbed_py/generic_proxy.py", line 18>
+#    2: 'append_cors_headers.<locals>.<listcomp>'
+#    3: ','
+#    4: 'origin'
+#    5: '*'
+#    6: ''
+#    7: '[,\\s]+'
+#    8: <code object <listcomp> at 0x7f48c603e920, file "testbed_py/generic_proxy.py", line 33>
+# Names:
+#    0: config
+#    1: DISABLE_CORS_HEADERS
+#    2: headers
+#    3: isinstance
+#    4: LambdaResponse
+#    5: multi_value_headers
+#    6: keys
+#    7: list
+#    8: get
+#    9: join
+#   10: ACL_ORIGIN
+#   11: DISABLE_CORS_CHECKS
+#   12: ACL_METHODS
+#   13: CORS_ALLOWED_METHODS
+#   14: ACL_ALLOW_HEADERS
+#   15: ACL_REQUEST_HEADERS
+#   16: re
+#   17: split
+#   18: CORS_ALLOWED_HEADERS
+#   19: ACL_EXPOSE_HEADERS
+#   20: CORS_EXPOSE_HEADERS
+#   21: ALLOWED_CORS_RESPONSE_HEADERS
+# Varnames:
+#	request_headers, response, headers, key, headers_list, requested_headers, header
+# Positional arguments:
+#	request_headers, response
+# Local variables:
+#    2: headers
+#    3: key
+#    4: headers_list
+#    5: requested_headers
+#    6: header
+  6:           0 LOAD_GLOBAL          (config)
+               2 LOAD_ATTR            (DISABLE_CORS_HEADERS)
+               4 POP_JUMP_IF_FALSE    (to 10)
+
+  7:           6 LOAD_CONST           (None)
+               8 RETURN_VALUE
+
+ 10:     >>   10 LOAD_FAST            (response)
+              12 LOAD_CONST           (None)
+              14 IS_OP                (is)
+              16 POP_JUMP_IF_FALSE    (to 22)
+              18 BUILD_MAP            0
+              20 JUMP_FORWARD         (to 26)
+         >>   22 LOAD_FAST            (response)
+              24 LOAD_ATTR            (headers)
+         >>   26 STORE_FAST           (headers)
+
+ 15:          28 LOAD_GLOBAL          (isinstance)
+              30 LOAD_FAST            (response)
+              32 LOAD_GLOBAL          (LambdaResponse)
+              34 CALL_FUNCTION        2
+              36 POP_JUMP_IF_FALSE    (to 110)
+
+ 16:          38 LOAD_FAST            (response)
+              40 LOAD_ATTR            (multi_value_headers)
+              42 LOAD_METHOD          (keys)
+              44 CALL_METHOD          0
+              46 GET_ITER
+         >>   48 FOR_ITER             (to 110)
+              50 STORE_FAST           (key)
+
+ 17:          52 LOAD_GLOBAL          (list)
+              54 LOAD_FAST            (response)
+              56 LOAD_ATTR            (multi_value_headers)
+              58 LOAD_FAST            (key)
+              60 BINARY_SUBSCR
+              62 CALL_FUNCTION        1
+              64 LOAD_FAST            (response)
+              66 LOAD_ATTR            (headers)
+              68 LOAD_METHOD          (get)
+              70 LOAD_FAST            (key)
+              72 CALL_METHOD          1
+              74 BUILD_LIST           1
+              76 BINARY_ADD
+              78 STORE_FAST           (headers_list)
+
+ 18:          80 LOAD_CONST           (<code object <listcomp> at 0x7f48c603e710, file "testbed_py/generic_proxy.py", line 18>)
+              82 LOAD_CONST           ('append_cors_headers.<locals>.<listcomp>')
+              84 MAKE_FUNCTION        (Neither defaults, keyword-only args, annotations, nor closures)
+              86 LOAD_FAST            (headers_list)
+              88 GET_ITER
+              90 CALL_FUNCTION        1
+              92 STORE_FAST           (headers_list)
+
+ 19:          94 LOAD_CONST           (',')
+              96 LOAD_METHOD          (join)
+              98 LOAD_FAST            (headers_list)
+             100 CALL_METHOD          1
+             102 LOAD_FAST            (headers)
+             104 LOAD_FAST            (key)
+             106 STORE_SUBSCR
+             108 JUMP_ABSOLUTE        (to 48)
+
+ 22:     >>  110 LOAD_GLOBAL          (ACL_ORIGIN)
+             112 LOAD_FAST            (headers)
+             114 CONTAINS_OP          (not in)
+             116 POP_JUMP_IF_FALSE    (to 150)
+
+ 25:         118 LOAD_FAST            (request_headers)
+             120 LOAD_METHOD          (get)
+             122 LOAD_CONST           ('origin')
+             124 CALL_METHOD          1
+
+ 24:         126 POP_JUMP_IF_FALSE    (to 142)
+
+ 25:         128 LOAD_GLOBAL          (config)
+             130 LOAD_ATTR            (DISABLE_CORS_CHECKS)
+
+ 24:         132 POP_JUMP_IF_TRUE     (to 142)
+             134 LOAD_FAST            (request_headers)
+             136 LOAD_CONST           ('origin')
+             138 BINARY_SUBSCR
+             140 JUMP_FORWARD         (to 144)
+
+ 26:     >>  142 LOAD_CONST           ('*')
+
+ 23:     >>  144 LOAD_FAST            (headers)
+             146 LOAD_GLOBAL          (ACL_ORIGIN)
+             148 STORE_SUBSCR
+
+ 28:     >>  150 LOAD_GLOBAL          (ACL_METHODS)
+             152 LOAD_FAST            (headers)
+             154 CONTAINS_OP          (not in)
+             156 POP_JUMP_IF_FALSE    (to 172)
+
+ 29:         158 LOAD_CONST           (',')
+             160 LOAD_METHOD          (join)
+             162 LOAD_GLOBAL          (CORS_ALLOWED_METHODS)
+             164 CALL_METHOD          1
+             166 LOAD_FAST            (headers)
+             168 LOAD_GLOBAL          (ACL_METHODS)
+             170 STORE_SUBSCR
+
+ 30:     >>  172 LOAD_GLOBAL          (ACL_ALLOW_HEADERS)
+             174 LOAD_FAST            (headers)
+             176 CONTAINS_OP          (not in)
+             178 POP_JUMP_IF_FALSE    (to 232)
+
+ 31:         180 LOAD_FAST            (headers)
+             182 LOAD_METHOD          (get)
+             184 LOAD_GLOBAL          (ACL_REQUEST_HEADERS)
+             186 LOAD_CONST           ('')
+             188 CALL_METHOD          2
+             190 STORE_FAST           (requested_headers)
+
+ 32:         192 LOAD_GLOBAL          (re)
+             194 LOAD_METHOD          (split)
+             196 LOAD_CONST           ('[,\\s]+')
+             198 LOAD_FAST            (requested_headers)
+             200 CALL_METHOD          2
+             202 LOAD_GLOBAL          (CORS_ALLOWED_HEADERS)
+             204 BINARY_ADD
+             206 STORE_FAST           (requested_headers)
+
+ 33:         208 LOAD_CONST           (',')
+             210 LOAD_METHOD          (join)
+             212 LOAD_CONST           (<code object <listcomp> at 0x7f48c603e920, file "testbed_py/generic_proxy.py", line 33>)
+             214 LOAD_CONST           ('append_cors_headers.<locals>.<listcomp>')
+             216 MAKE_FUNCTION        (Neither defaults, keyword-only args, annotations, nor closures)
+             218 LOAD_FAST            (requested_headers)
+             220 GET_ITER
+             222 CALL_FUNCTION        1
+             224 CALL_METHOD          1
+             226 LOAD_FAST            (headers)
+             228 LOAD_GLOBAL          (ACL_ALLOW_HEADERS)
+             230 STORE_SUBSCR
+
+ 34:     >>  232 LOAD_GLOBAL          (ACL_EXPOSE_HEADERS)
+             234 LOAD_FAST            (headers)
+             236 CONTAINS_OP          (not in)
+             238 POP_JUMP_IF_FALSE    (to 254)
+
+ 35:         240 LOAD_CONST           (',')
+             242 LOAD_METHOD          (join)
+             244 LOAD_GLOBAL          (CORS_EXPOSE_HEADERS)
+             246 CALL_METHOD          1
+             248 LOAD_FAST            (headers)
+             250 LOAD_GLOBAL          (ACL_EXPOSE_HEADERS)
+             252 STORE_SUBSCR
+
+ 37:     >>  254 LOAD_GLOBAL          (ALLOWED_CORS_RESPONSE_HEADERS)
+             256 GET_ITER
+         >>  258 FOR_ITER             (to 288)
+             260 STORE_FAST           (header)
+
+ 38:         262 LOAD_FAST            (headers)
+             264 LOAD_METHOD          (get)
+             266 LOAD_FAST            (header)
+             268 CALL_METHOD          1
+             270 LOAD_CONST           ('')
+             272 COMPARE_OP           (==)
+             274 EXTENDED_ARG         (256)
+             276 POP_JUMP_IF_FALSE    (to 258)
+
+ 39:         278 LOAD_FAST            (headers)
+             280 LOAD_FAST            (header)
+             282 DELETE_SUBSCR
+             284 EXTENDED_ARG         (256)
+             286 JUMP_ABSOLUTE        (to 258)
+         >>  288 LOAD_CONST           (None)
+             290 RETURN_VALUE
+
+
+# Method Name:       <listcomp>
+# Filename:          testbed_py/generic_proxy.py
+# Argument count:    1
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  2
+# Stack size:        4
+# Flags:             0x00000053 (NOFREE | NESTED | NEWLOCALS | OPTIMIZED)
+# First Line:        18
+# Constants:
+#    0: None
+# Names:
+#    0: str
+# Varnames:
+#	.0, h
+# Positional arguments:
+#	.0
+# Local variables:
+#    1: h
+ 18:           0 BUILD_LIST           0
+               2 LOAD_FAST            (.0)
+         >>    4 FOR_ITER             (to 26)
+               6 STORE_FAST           (h)
+               8 LOAD_FAST            (h)
+              10 LOAD_CONST           (None)
+              12 IS_OP                (is not)
+              14 POP_JUMP_IF_FALSE    (to 4)
+              16 LOAD_GLOBAL          (str)
+              18 LOAD_FAST            (h)
+              20 CALL_FUNCTION        1
+              22 LIST_APPEND          2
+              24 JUMP_ABSOLUTE        (to 4)
+         >>   26 RETURN_VALUE
+
+
+# Method Name:       <listcomp>
+# Filename:          testbed_py/generic_proxy.py
+# Argument count:    1
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  2
+# Stack size:        3
+# Flags:             0x00000053 (NOFREE | NESTED | NEWLOCALS | OPTIMIZED)
+# First Line:        33
+# Varnames:
+#	.0, h
+# Positional arguments:
+#	.0
+# Local variables:
+#    1: h
+ 33:           0 BUILD_LIST           0
+               2 LOAD_FAST            (.0)
+         >>    4 FOR_ITER             (to 18)
+               6 STORE_FAST           (h)
+               8 LOAD_FAST            (h)
+              10 POP_JUMP_IF_FALSE    (to 4)
+              12 LOAD_FAST            (h)
+              14 LIST_APPEND          2
+              16 JUMP_ABSOLUTE        (to 4)
+         >>   18 RETURN_VALUE
+

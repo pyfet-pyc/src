@@ -1,0 +1,546 @@
+# pydisasm version 5.0.11
+# Python bytecode 3.8 (3413)
+# Disassembled from Python 3.8.11 (default, Aug 17 2021, 15:56:41) 
+# [GCC 10.2.1 20210110]
+# Timestamp in code: 1660361027 (2022-08-13 03:23:47)
+# Source code size mod 2**32: 1792 bytes
+# Method Name:       <module>
+# Filename:          testbed_py/backend_test.pyc
+# Argument count:    0
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  0
+# Stack size:        5
+# Flags:             0x00000040 (NOFREE)
+# First Line:        15
+# Constants:
+#    0: 'Tests for Keras backend.'
+#    1: 0
+#    2: None
+#    3: ('parameterized',)
+#    4: ('activations',)
+#    5: ('backend',)
+#    6: ('input_layer',)
+#    7: ('activation',)
+#    8: ('batch_normalization_v1',)
+#    9: ('test_combinations',)
+#   10: ('losses_utils',)
+#   11: ('tf_inspect',)
+#   12: ('tf_utils',)
+#   13: ('context',)
+#   14: ('get_config',)
+#   15: ('test_util',)
+#   16: '_v1'
+#   17: '_v2'
+#   18: <code object test_new_graph at 0x7f2163a11660, file "testbed_py/backend_test.pyc", line 45>
+#   19: 'test_new_graph'
+# Names:
+#    0: __doc__
+#    1: gc
+#    2: warnings
+#    3: numpy
+#    4: np
+#    5: scipy.sparse
+#    6: scipy
+#    7: tensorflow.compat.v2
+#    8: compat
+#    9: v2
+#   10: tf
+#   11: absl.testing
+#   12: parameterized
+#   13: keras
+#   14: activations
+#   15: backend
+#   16: keras.engine
+#   17: input_layer
+#   18: keras.layers
+#   19: activation
+#   20: keras.layers.normalization
+#   21: batch_normalization_v1
+#   22: keras.testing_infra
+#   23: test_combinations
+#   24: keras.utils
+#   25: losses_utils
+#   26: tf_inspect
+#   27: tf_utils
+#   28: tensorflow.python.eager
+#   29: context
+#   30: tensorflow.python.eager.context
+#   31: get_config
+#   32: tensorflow.python.framework
+#   33: test_util
+#   34: tf_test_utils
+#   35: named_parameters
+#   36: graph_mode
+#   37: __internal__
+#   38: eager_context
+#   39: eager_mode
+#   40: test_new_graph
+ 15:           0 LOAD_CONST           ('Tests for Keras backend.')
+               2 STORE_NAME           (__doc__)
+
+ 17:           4 LOAD_CONST           (0)
+               6 LOAD_CONST           (None)
+               8 IMPORT_NAME          (gc)
+              10 STORE_NAME           (gc)
+
+ 18:          12 LOAD_CONST           (0)
+              14 LOAD_CONST           (None)
+              16 IMPORT_NAME          (warnings)
+              18 STORE_NAME           (warnings)
+
+ 20:          20 LOAD_CONST           (0)
+              22 LOAD_CONST           (None)
+              24 IMPORT_NAME          (numpy)
+              26 STORE_NAME           (np)
+
+ 21:          28 LOAD_CONST           (0)
+              30 LOAD_CONST           (None)
+              32 IMPORT_NAME          (scipy.sparse)
+              34 STORE_NAME           (scipy)
+
+ 22:          36 LOAD_CONST           (0)
+              38 LOAD_CONST           (None)
+              40 IMPORT_NAME          (tensorflow.compat.v2)
+              42 IMPORT_FROM          (compat)
+              44 ROT_TWO
+              46 POP_TOP
+              48 IMPORT_FROM          (v2)
+              50 STORE_NAME           (tf)
+              52 POP_TOP
+
+ 23:          54 LOAD_CONST           (0)
+              56 LOAD_CONST           (('parameterized',))
+              58 IMPORT_NAME          (absl.testing)
+              60 IMPORT_FROM          (parameterized)
+              62 STORE_NAME           (parameterized)
+              64 POP_TOP
+
+ 25:          66 LOAD_CONST           (0)
+              68 LOAD_CONST           (('activations',))
+              70 IMPORT_NAME          (keras)
+              72 IMPORT_FROM          (activations)
+              74 STORE_NAME           (activations)
+              76 POP_TOP
+
+ 26:          78 LOAD_CONST           (0)
+              80 LOAD_CONST           (('backend',))
+              82 IMPORT_NAME          (keras)
+              84 IMPORT_FROM          (backend)
+              86 STORE_NAME           (backend)
+              88 POP_TOP
+
+ 27:          90 LOAD_CONST           (0)
+              92 LOAD_CONST           (('input_layer',))
+              94 IMPORT_NAME          (keras.engine)
+              96 IMPORT_FROM          (input_layer)
+              98 STORE_NAME           (input_layer)
+             100 POP_TOP
+
+ 28:         102 LOAD_CONST           (0)
+             104 LOAD_CONST           (('activation',))
+             106 IMPORT_NAME          (keras.layers)
+             108 IMPORT_FROM          (activation)
+             110 STORE_NAME           (activation)
+             112 POP_TOP
+
+ 29:         114 LOAD_CONST           (0)
+             116 LOAD_CONST           (('batch_normalization_v1',))
+             118 IMPORT_NAME          (keras.layers.normalization)
+             120 IMPORT_FROM          (batch_normalization_v1)
+             122 STORE_NAME           (batch_normalization_v1)
+             124 POP_TOP
+
+ 30:         126 LOAD_CONST           (0)
+             128 LOAD_CONST           (('test_combinations',))
+             130 IMPORT_NAME          (keras.testing_infra)
+             132 IMPORT_FROM          (test_combinations)
+             134 STORE_NAME           (test_combinations)
+             136 POP_TOP
+
+ 31:         138 LOAD_CONST           (0)
+             140 LOAD_CONST           (('losses_utils',))
+             142 IMPORT_NAME          (keras.utils)
+             144 IMPORT_FROM          (losses_utils)
+             146 STORE_NAME           (losses_utils)
+             148 POP_TOP
+
+ 32:         150 LOAD_CONST           (0)
+             152 LOAD_CONST           (('tf_inspect',))
+             154 IMPORT_NAME          (keras.utils)
+             156 IMPORT_FROM          (tf_inspect)
+             158 STORE_NAME           (tf_inspect)
+             160 POP_TOP
+
+ 33:         162 LOAD_CONST           (0)
+             164 LOAD_CONST           (('tf_utils',))
+             166 IMPORT_NAME          (keras.utils)
+             168 IMPORT_FROM          (tf_utils)
+             170 STORE_NAME           (tf_utils)
+             172 POP_TOP
+
+ 36:         174 LOAD_CONST           (0)
+             176 LOAD_CONST           (('context',))
+             178 IMPORT_NAME          (tensorflow.python.eager)
+             180 IMPORT_FROM          (context)
+             182 STORE_NAME           (context)
+             184 POP_TOP
+
+ 37:         186 LOAD_CONST           (0)
+             188 LOAD_CONST           (('get_config',))
+             190 IMPORT_NAME          (tensorflow.python.eager.context)
+             192 IMPORT_FROM          (get_config)
+             194 STORE_NAME           (get_config)
+             196 POP_TOP
+
+ 38:         198 LOAD_CONST           (0)
+             200 LOAD_CONST           (('test_util',))
+             202 IMPORT_NAME          (tensorflow.python.framework)
+             204 IMPORT_FROM          (test_util)
+             206 STORE_NAME           (tf_test_utils)
+             208 POP_TOP
+
+ 45:         210 LOAD_NAME            (parameterized)
+             212 LOAD_METHOD          (named_parameters)
+
+ 46:         214 LOAD_CONST           ('_v1')
+             216 LOAD_NAME            (context)
+             218 LOAD_ATTR            (graph_mode)
+             220 BUILD_TUPLE          2
+
+ 47:         222 LOAD_CONST           ('_v2')
+             224 LOAD_NAME            (tf)
+             226 LOAD_ATTR            (__internal__)
+             228 LOAD_ATTR            (eager_context)
+             230 LOAD_ATTR            (eager_mode)
+             232 BUILD_TUPLE          2
+
+ 45:         234 CALL_METHOD          2
+
+ 49:         236 LOAD_CONST           (<code object test_new_graph at 0x7f2163a11660, file "testbed_py/backend_test.pyc", line 45>)
+             238 LOAD_CONST           ('test_new_graph')
+             240 MAKE_FUNCTION        (Neither defaults, keyword-only args, annotations, nor closures)
+             242 CALL_FUNCTION        1
+             244 STORE_NAME           (test_new_graph)
+             246 LOAD_CONST           (None)
+             248 RETURN_VALUE
+
+
+# Method Name:       test_new_graph
+# Filename:          testbed_py/backend_test.pyc
+# Argument count:    2
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  4
+# Stack size:        2
+# Flags:             0x00000043 (NOFREE | NEWLOCALS | OPTIMIZED)
+# First Line:        45
+# Constants:
+#    0: None
+# Names:
+#    0: backend
+#    1: get_graph
+#    2: clear_session
+# Varnames:
+#	self, test_context, g_old, g
+# Positional arguments:
+#	self, test_context
+# Local variables:
+#    2: g_old
+#    3: g
+ 51:           0 LOAD_GLOBAL          (backend)
+               2 LOAD_METHOD          (get_graph)
+               4 CALL_METHOD          0
+               6 STORE_FAST           (g_old)
+
+ 52:           8 LOAD_GLOBAL          (backend)
+              10 LOAD_METHOD          (clear_session)
+              12 CALL_METHOD          0
+              14 POP_TOP
+
+ 53:          16 LOAD_GLOBAL          (backend)
+              18 LOAD_METHOD          (get_graph)
+              20 CALL_METHOD          0
+              22 STORE_FAST           (g)
+
+ 55:          24 LOAD_FAST            (g_old)
+              26 LOAD_FAST            (g)
+              28 COMPARE_OP           (is-not)
+              30 POP_JUMP_IF_FALSE    (to 36)
+
+ 56:          32 LOAD_CONST           (None)
+              34 RETURN_VALUE
+         >>   36 LOAD_CONST           (None)
+              38 RETURN_VALUE
+
+# pydisasm version 5.0.11
+# Python bytecode 3.8 (3413)
+# Disassembled from Python 3.8.11 (default, Aug 17 2021, 15:56:41) 
+# [GCC 10.2.1 20210110]
+# Timestamp in code: 1660360876 (2022-08-13 03:21:16)
+# Source code size mod 2**32: 1209 bytes
+# Method Name:       <module>
+# Filename:          testbed_py/final.py
+# Argument count:    0
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  0
+# Stack size:        5
+# Flags:             0x00000040 (NOFREE)
+# First Line:        8
+# Constants:
+#    0: 'Tests for Keras backend.'
+#    1: 0
+#    2: None
+#    3: ('parameterized',)
+#    4: ('activations',)
+#    5: ('backend',)
+#    6: ('input_layer',)
+#    7: ('activation',)
+#    8: ('batch_normalization_v1',)
+#    9: ('test_combinations',)
+#   10: ('losses_utils',)
+#   11: ('tf_inspect',)
+#   12: ('tf_utils',)
+#   13: ('context',)
+#   14: ('get_config',)
+#   15: '_v1'
+#   16: '_v2'
+#   17: <code object test_new_graph at 0x7f2163a11660, file "testbed_py/final.py", line 25>
+#   18: 'test_new_graph'
+# Names:
+#    0: __doc__
+#    1: gc
+#    2: warnings
+#    3: numpy
+#    4: np
+#    5: scipy.sparse
+#    6: scipy
+#    7: tensorflow.compat.v2
+#    8: compat
+#    9: v2
+#   10: tf
+#   11: absl.testing
+#   12: parameterized
+#   13: keras
+#   14: activations
+#   15: backend
+#   16: keras.engine
+#   17: input_layer
+#   18: keras.layers
+#   19: activation
+#   20: keras.layers.normalization
+#   21: batch_normalization_v1
+#   22: keras.testing_infra
+#   23: test_combinations
+#   24: keras.utils
+#   25: losses_utils
+#   26: tf_inspect
+#   27: tf_utils
+#   28: tensorflow.python.eager
+#   29: context
+#   30: tensorflow.python.eager.context
+#   31: get_config
+#   32: tensorflow.python.framework
+#   33: python
+#   34: framework
+#   35: tf_test_utils
+#   36: named_parameters
+#   37: graph_mode
+#   38: __internal__
+#   39: eager_context
+#   40: eager_mode
+#   41: test_new_graph
+  8:           0 LOAD_CONST           ('Tests for Keras backend.')
+               2 STORE_NAME           (__doc__)
+
+  9:           4 LOAD_CONST           (0)
+               6 LOAD_CONST           (None)
+               8 IMPORT_NAME          (gc)
+              10 STORE_NAME           (gc)
+              12 LOAD_CONST           (0)
+              14 LOAD_CONST           (None)
+              16 IMPORT_NAME          (warnings)
+              18 STORE_NAME           (warnings)
+              20 LOAD_CONST           (0)
+              22 LOAD_CONST           (None)
+              24 IMPORT_NAME          (numpy)
+              26 STORE_NAME           (np)
+              28 LOAD_CONST           (0)
+              30 LOAD_CONST           (None)
+              32 IMPORT_NAME          (scipy.sparse)
+              34 STORE_NAME           (scipy)
+
+ 10:          36 LOAD_CONST           (0)
+              38 LOAD_CONST           (None)
+              40 IMPORT_NAME          (tensorflow.compat.v2)
+              42 IMPORT_FROM          (compat)
+              44 ROT_TWO
+              46 POP_TOP
+              48 IMPORT_FROM          (v2)
+              50 STORE_NAME           (tf)
+              52 POP_TOP
+
+ 11:          54 LOAD_CONST           (0)
+              56 LOAD_CONST           (('parameterized',))
+              58 IMPORT_NAME          (absl.testing)
+              60 IMPORT_FROM          (parameterized)
+              62 STORE_NAME           (parameterized)
+              64 POP_TOP
+
+ 12:          66 LOAD_CONST           (0)
+              68 LOAD_CONST           (('activations',))
+              70 IMPORT_NAME          (keras)
+              72 IMPORT_FROM          (activations)
+              74 STORE_NAME           (activations)
+              76 POP_TOP
+
+ 13:          78 LOAD_CONST           (0)
+              80 LOAD_CONST           (('backend',))
+              82 IMPORT_NAME          (keras)
+              84 IMPORT_FROM          (backend)
+              86 STORE_NAME           (backend)
+              88 POP_TOP
+
+ 14:          90 LOAD_CONST           (0)
+              92 LOAD_CONST           (('input_layer',))
+              94 IMPORT_NAME          (keras.engine)
+              96 IMPORT_FROM          (input_layer)
+              98 STORE_NAME           (input_layer)
+             100 POP_TOP
+
+ 15:         102 LOAD_CONST           (0)
+             104 LOAD_CONST           (('activation',))
+             106 IMPORT_NAME          (keras.layers)
+             108 IMPORT_FROM          (activation)
+             110 STORE_NAME           (activation)
+             112 POP_TOP
+
+ 16:         114 LOAD_CONST           (0)
+             116 LOAD_CONST           (('batch_normalization_v1',))
+             118 IMPORT_NAME          (keras.layers.normalization)
+             120 IMPORT_FROM          (batch_normalization_v1)
+             122 STORE_NAME           (batch_normalization_v1)
+             124 POP_TOP
+
+ 17:         126 LOAD_CONST           (0)
+             128 LOAD_CONST           (('test_combinations',))
+             130 IMPORT_NAME          (keras.testing_infra)
+             132 IMPORT_FROM          (test_combinations)
+             134 STORE_NAME           (test_combinations)
+             136 POP_TOP
+
+ 18:         138 LOAD_CONST           (0)
+             140 LOAD_CONST           (('losses_utils',))
+             142 IMPORT_NAME          (keras.utils)
+             144 IMPORT_FROM          (losses_utils)
+             146 STORE_NAME           (losses_utils)
+             148 POP_TOP
+
+ 19:         150 LOAD_CONST           (0)
+             152 LOAD_CONST           (('tf_inspect',))
+             154 IMPORT_NAME          (keras.utils)
+             156 IMPORT_FROM          (tf_inspect)
+             158 STORE_NAME           (tf_inspect)
+             160 POP_TOP
+
+ 20:         162 LOAD_CONST           (0)
+             164 LOAD_CONST           (('tf_utils',))
+             166 IMPORT_NAME          (keras.utils)
+             168 IMPORT_FROM          (tf_utils)
+             170 STORE_NAME           (tf_utils)
+             172 POP_TOP
+
+ 21:         174 LOAD_CONST           (0)
+             176 LOAD_CONST           (('context',))
+             178 IMPORT_NAME          (tensorflow.python.eager)
+             180 IMPORT_FROM          (context)
+             182 STORE_NAME           (context)
+             184 POP_TOP
+
+ 22:         186 LOAD_CONST           (0)
+             188 LOAD_CONST           (('get_config',))
+             190 IMPORT_NAME          (tensorflow.python.eager.context)
+             192 IMPORT_FROM          (get_config)
+             194 STORE_NAME           (get_config)
+             196 POP_TOP
+
+ 23:         198 LOAD_CONST           (0)
+             200 LOAD_CONST           (None)
+             202 IMPORT_NAME          (tensorflow.python.framework)
+             204 IMPORT_FROM          (python)
+             206 ROT_TWO
+             208 POP_TOP
+             210 IMPORT_FROM          (framework)
+             212 STORE_NAME           (tf_test_utils)
+             214 POP_TOP
+
+ 25:         216 LOAD_NAME            (parameterized)
+             218 LOAD_METHOD          (named_parameters)
+
+ 26:         220 LOAD_CONST           ('_v1')
+
+ 26:         222 LOAD_NAME            (context)
+             224 LOAD_ATTR            (graph_mode)
+
+ 25:         226 BUILD_TUPLE          2
+
+ 27:         228 LOAD_CONST           ('_v2')
+
+ 27:         230 LOAD_NAME            (tf)
+             232 LOAD_ATTR            (__internal__)
+             234 LOAD_ATTR            (eager_context)
+             236 LOAD_ATTR            (eager_mode)
+
+ 26:         238 BUILD_TUPLE          2
+
+ 25:         240 CALL_METHOD          2
+
+ 28:         242 LOAD_CONST           (<code object test_new_graph at 0x7f2163a11660, file "testbed_py/final.py", line 25>)
+             244 LOAD_CONST           ('test_new_graph')
+             246 MAKE_FUNCTION        (Neither defaults, keyword-only args, annotations, nor closures)
+             248 CALL_FUNCTION        1
+             250 STORE_NAME           (test_new_graph)
+             252 LOAD_CONST           (None)
+             254 RETURN_VALUE
+
+
+# Method Name:       test_new_graph
+# Filename:          testbed_py/final.py
+# Argument count:    2
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  4
+# Stack size:        2
+# Flags:             0x00000043 (NOFREE | NEWLOCALS | OPTIMIZED)
+# First Line:        25
+# Constants:
+#    0: None
+# Names:
+#    0: backend
+#    1: get_graph
+#    2: clear_session
+# Varnames:
+#	self, test_context, g_old, g
+# Positional arguments:
+#	self, test_context
+# Local variables:
+#    2: g_old
+#    3: g
+ 29:           0 LOAD_GLOBAL          (backend)
+               2 LOAD_METHOD          (get_graph)
+               4 CALL_METHOD          0
+               6 STORE_FAST           (g_old)
+
+ 30:           8 LOAD_GLOBAL          (backend)
+              10 LOAD_METHOD          (clear_session)
+              12 CALL_METHOD          0
+              14 POP_TOP
+
+ 31:          16 LOAD_GLOBAL          (backend)
+              18 LOAD_METHOD          (get_graph)
+              20 CALL_METHOD          0
+              22 STORE_FAST           (g)
+              24 LOAD_CONST           (None)
+              26 RETURN_VALUE
+

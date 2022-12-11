@@ -1,0 +1,18 @@
+  1           0 LOAD_CONST               0 (<code object foo at 0x40021afb30, file "samples/target_py/main.py", line 1>)
+              2 LOAD_CONST               1 ('foo')
+              4 MAKE_FUNCTION            0
+              6 STORE_NAME               0 (foo)
+              8 LOAD_CONST               2 (None)
+             10 RETURN_VALUE
+
+Disassembly of <code object foo at 0x40021afb30, file "samples/target_py/main.py", line 1>:
+  2           0 LOAD_GLOBAL              0 (lib)
+              2 GET_ITER
+        >>    4 FOR_ITER                 8 (to 14)
+              6 STORE_FAST               0 (i)
+
+  3           8 LOAD_FAST                1 (z)
+             10 STORE_FAST               1 (z)
+             12 JUMP_ABSOLUTE            4
+        >>   14 LOAD_CONST               0 (None)
+             16 RETURN_VALUE

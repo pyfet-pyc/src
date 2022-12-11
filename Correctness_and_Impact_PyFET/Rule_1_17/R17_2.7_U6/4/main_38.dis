@@ -1,0 +1,94 @@
+# pydisasm version 5.0.11
+# Python bytecode 3.8 (3413)
+# Disassembled from Python 3.8.11 (default, Aug 17 2021, 15:56:41) 
+# [GCC 10.2.1 20210110]
+# Timestamp in code: 1660244450 (2022-08-11 19:00:50)
+# Source code size mod 2**32: 338 bytes
+# Method Name:       <module>
+# Filename:          testbed_py/anvato.py
+# Argument count:    0
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  0
+# Stack size:        2
+# Flags:             0x00000040 (NOFREE)
+# First Line:        1
+# Constants:
+#    0: <code object _server_time at 0x7fcdb87a6660, file "testbed_py/anvato.py", line 1>
+#    1: '_server_time'
+#    2: None
+# Names:
+#    0: _server_time
+  1:           0 LOAD_CONST           (<code object _server_time at 0x7fcdb87a6660, file "testbed_py/anvato.py", line 1>)
+               2 LOAD_CONST           ('_server_time')
+               4 MAKE_FUNCTION        (Neither defaults, keyword-only args, annotations, nor closures)
+               6 STORE_NAME           (_server_time)
+               8 LOAD_CONST           (None)
+              10 RETURN_VALUE
+
+
+# Method Name:       _server_time
+# Filename:          testbed_py/anvato.py
+# Argument count:    3
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  3
+# Stack size:        6
+# Flags:             0x00000043 (NOFREE | NEWLOCALS | OPTIMIZED)
+# First Line:        1
+# Constants:
+#    0: None
+#    1: 'server_time?anvack='
+#    2: 'Fetching server time'
+#    3: ('note',)
+#    4: 'server_time'
+# Names:
+#    0: __server_time
+#    1: int
+#    2: _download_json
+#    3: _api_prefix
+# Varnames:
+#	self, access_key, video_id
+# Positional arguments:
+#	self, access_key, video_id
+  2:           0 LOAD_FAST            (self)
+               2 LOAD_ATTR            (__server_time)
+               4 LOAD_CONST           (None)
+               6 COMPARE_OP           (is-not)
+               8 POP_JUMP_IF_FALSE    (to 16)
+
+  3:          10 LOAD_FAST            (self)
+              12 LOAD_ATTR            (__server_time)
+              14 RETURN_VALUE
+
+  5:     >>   16 LOAD_GLOBAL          (int)
+              18 LOAD_FAST            (self)
+              20 LOAD_ATTR            (_download_json)
+
+  6:          22 LOAD_FAST            (self)
+              24 LOAD_METHOD          (_api_prefix)
+              26 LOAD_FAST            (access_key)
+              28 CALL_METHOD          1
+              30 LOAD_CONST           ('server_time?anvack=')
+              32 BINARY_ADD
+              34 LOAD_FAST            (access_key)
+              36 BINARY_ADD
+
+  6:          38 LOAD_FAST            (video_id)
+
+  7:          40 LOAD_CONST           ('Fetching server time')
+
+  5:          42 LOAD_CONST           (('note',))
+              44 CALL_FUNCTION_KW     (3 total positional and keyword args)
+
+  7:          46 LOAD_CONST           ('server_time')
+
+  5:          48 BINARY_SUBSCR
+              50 CALL_FUNCTION        1
+              52 LOAD_FAST            (self)
+              54 STORE_ATTR           (__server_time)
+
+  9:          56 LOAD_FAST            (self)
+              58 LOAD_ATTR            (__server_time)
+              60 RETURN_VALUE
+

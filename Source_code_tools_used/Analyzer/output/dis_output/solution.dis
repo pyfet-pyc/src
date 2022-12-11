@@ -1,0 +1,23 @@
+  1           0 LOAD_CONST               0 (<code object is_at_turn at 0x40022afe40, file "samples/target_py/solution.py", line 1>)
+              2 LOAD_CONST               1 ('is_at_turn')
+              4 MAKE_FUNCTION            0
+              6 STORE_NAME               0 (is_at_turn)
+
+  5           8 LOAD_NAME                0 (is_at_turn)
+             10 CALL_FUNCTION            0
+             12 POP_TOP
+             14 LOAD_CONST               2 (None)
+             16 RETURN_VALUE
+
+Disassembly of <code object is_at_turn at 0x40022afe40, file "samples/target_py/solution.py", line 1>:
+  2           0 LOAD_GLOBAL              0 (print)
+              2 LOAD_CONST               1 ('hello world2')
+              4 CALL_FUNCTION            1
+              6 POP_TOP
+
+  3           8 LOAD_GLOBAL              0 (print)
+             10 LOAD_CONST               2 (4)
+             12 CALL_FUNCTION            1
+             14 POP_TOP
+             16 LOAD_CONST               0 (None)
+             18 RETURN_VALUE

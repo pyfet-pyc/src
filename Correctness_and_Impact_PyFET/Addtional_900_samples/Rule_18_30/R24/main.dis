@@ -1,0 +1,250 @@
+# pydisasm version 5.0.11
+# Python bytecode 3.9 (3425)
+# Disassembled from Python 3.9.6 (default, Aug 17 2021, 15:37:33) 
+# [GCC 10.2.1 20210110]
+# Timestamp in code: 1660541212 (2022-08-15 05:26:52)
+# Source code size mod 2**32: 989 bytes
+# Method Name:       <module>
+# Filename:          30.py
+# Argument count:    0
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  0
+# Stack size:        2
+# Flags:             0x00000040 (NOFREE)
+# First Line:        1
+# Constants:
+#    0: <code object experiment at 0x7f402e33f870, file "30.py", line 1>
+#    1: 'experiment'
+#    2: None
+# Names:
+#    0: experiment
+  1:           0 LOAD_CONST           (<code object experiment at 0x7f402e33f870, file "30.py", line 1>)
+               2 LOAD_CONST           ('experiment')
+               4 MAKE_FUNCTION        (Neither defaults, keyword-only args, annotations, nor closures)
+               6 STORE_NAME           (experiment)
+               8 LOAD_CONST           (None)
+              10 RETURN_VALUE
+
+
+# Method Name:       experiment
+# Filename:          30.py
+# Argument count:    1
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  16
+# Stack size:        5
+# Flags:             0x00000043 (NOFREE | NEWLOCALS | OPTIMIZED)
+# First Line:        1
+# Constants:
+#    0: None
+#    1: 'train-iterations'
+#    2: 'CartPole-v0'
+#    3: ('config', 'env')
+#    4: 2
+#    5: 0
+#    6: 1
+#    7: 'num_workers'
+#    8: False
+#    9: ('eval_reward', 'eval_eps_length')
+#   10: 'eval_reward'
+#   11: 'eval_eps_length'
+# Names:
+#    0: pop
+#    1: ppo
+#    2: PPO
+#    3: range
+#    4: train
+#    5: save
+#    6: tune
+#    7: get_trial_dir
+#    8: report
+#    9: stop
+#   10: restore
+#   11: workers
+#   12: local_worker
+#   13: env
+#   14: reset
+#   15: compute_single_action
+#   16: step
+# Varnames:
+#	config, iterations, algo, checkpoint, train_results, i, eval_algo, env, obs, done, eval_results, action, next_obs, reward, info, results
+# Positional arguments:
+#	config
+# Local variables:
+#    1: iterations
+#    2: algo
+#    3: checkpoint
+#    4: train_results
+#    5: i
+#    6: eval_algo
+#    7: env
+#    8: obs
+#    9: done
+#   10: eval_results
+#   11: action
+#   12: next_obs
+#   13: reward
+#   14: info
+#   15: results
+  2:           0 LOAD_FAST            (config)
+               2 LOAD_METHOD          (pop)
+               4 LOAD_CONST           ('train-iterations')
+               6 CALL_METHOD          1
+               8 STORE_FAST           (iterations)
+
+  3:          10 LOAD_GLOBAL          (ppo)
+              12 LOAD_ATTR            (PPO)
+              14 LOAD_FAST            (config)
+              16 LOAD_CONST           ('CartPole-v0')
+              18 LOAD_CONST           (('config', 'env'))
+              20 CALL_FUNCTION_KW     (2 total positional and keyword args)
+              22 STORE_FAST           (algo)
+
+  4:          24 LOAD_CONST           (None)
+              26 STORE_FAST           (checkpoint)
+
+  5:          28 BUILD_MAP            0
+              30 STORE_FAST           (train_results)
+
+  8:          32 LOAD_GLOBAL          (range)
+              34 LOAD_FAST            (iterations)
+              36 CALL_FUNCTION        1
+              38 GET_ITER
+         >>   40 FOR_ITER             (to 108)
+              42 STORE_FAST           (i)
+
+  9:          44 LOAD_FAST            (algo)
+              46 LOAD_METHOD          (train)
+              48 CALL_METHOD          0
+              50 STORE_FAST           (train_results)
+
+ 10:          52 LOAD_FAST            (i)
+              54 LOAD_CONST           (2)
+              56 BINARY_MODULO
+              58 LOAD_CONST           (0)
+              60 COMPARE_OP           (==)
+              62 POP_JUMP_IF_TRUE     (to 76)
+              64 LOAD_FAST            (i)
+              66 LOAD_FAST            (iterations)
+              68 LOAD_CONST           (1)
+              70 BINARY_SUBTRACT
+              72 COMPARE_OP           (==)
+              74 POP_JUMP_IF_FALSE    (to 90)
+
+ 11:     >>   76 LOAD_FAST            (algo)
+              78 LOAD_METHOD          (save)
+              80 LOAD_GLOBAL          (tune)
+              82 LOAD_METHOD          (get_trial_dir)
+              84 CALL_METHOD          0
+              86 CALL_METHOD          1
+              88 STORE_FAST           (checkpoint)
+
+ 12:     >>   90 LOAD_GLOBAL          (tune)
+              92 LOAD_ATTR            (report)
+              94 BUILD_TUPLE          0
+              96 BUILD_MAP            0
+              98 LOAD_FAST            (train_results)
+             100 DICT_MERGE           1
+             102 CALL_FUNCTION_EX     (keyword and positional arguments)
+             104 POP_TOP
+             106 JUMP_ABSOLUTE        (to 40)
+
+ 13:     >>  108 LOAD_FAST            (algo)
+             110 LOAD_METHOD          (stop)
+             112 CALL_METHOD          0
+             114 POP_TOP
+
+ 16:         116 LOAD_CONST           (0)
+             118 LOAD_FAST            (config)
+             120 LOAD_CONST           ('num_workers')
+             122 STORE_SUBSCR
+
+ 17:         124 LOAD_GLOBAL          (ppo)
+             126 LOAD_ATTR            (PPO)
+             128 LOAD_FAST            (config)
+             130 LOAD_CONST           ('CartPole-v0')
+             132 LOAD_CONST           (('config', 'env'))
+             134 CALL_FUNCTION_KW     (2 total positional and keyword args)
+             136 STORE_FAST           (eval_algo)
+
+ 18:         138 LOAD_FAST            (eval_algo)
+             140 LOAD_METHOD          (restore)
+             142 LOAD_FAST            (checkpoint)
+             144 CALL_METHOD          1
+             146 POP_TOP
+
+ 19:         148 LOAD_FAST            (eval_algo)
+             150 LOAD_ATTR            (workers)
+             152 LOAD_METHOD          (local_worker)
+             154 CALL_METHOD          0
+             156 LOAD_ATTR            (env)
+             158 STORE_FAST           (env)
+
+ 21:         160 LOAD_FAST            (env)
+             162 LOAD_METHOD          (reset)
+             164 CALL_METHOD          0
+             166 STORE_FAST           (obs)
+
+ 22:         168 LOAD_CONST           (False)
+             170 STORE_FAST           (done)
+
+ 23:         172 LOAD_CONST           (0)
+             174 LOAD_CONST           (0)
+             176 LOAD_CONST           (('eval_reward', 'eval_eps_length'))
+             178 BUILD_CONST_KEY_MAP  2
+             180 STORE_FAST           (eval_results)
+
+ 24:     >>  182 LOAD_FAST            (done)
+             184 POP_JUMP_IF_TRUE     (to 248)
+
+ 25:         186 LOAD_FAST            (eval_algo)
+             188 LOAD_METHOD          (compute_single_action)
+             190 LOAD_FAST            (obs)
+             192 CALL_METHOD          1
+             194 STORE_FAST           (action)
+
+ 26:         196 LOAD_FAST            (env)
+             198 LOAD_METHOD          (step)
+             200 LOAD_FAST            (action)
+             202 CALL_METHOD          1
+             204 UNPACK_SEQUENCE      4
+             206 STORE_FAST           (next_obs)
+             208 STORE_FAST           (reward)
+             210 STORE_FAST           (done)
+             212 STORE_FAST           (info)
+
+ 27:         214 LOAD_FAST            (eval_results)
+             216 LOAD_CONST           ('eval_reward')
+             218 DUP_TOP_TWO
+             220 BINARY_SUBSCR
+             222 LOAD_FAST            (reward)
+             224 INPLACE_ADD
+             226 ROT_THREE
+             228 STORE_SUBSCR
+
+ 28:         230 LOAD_FAST            (eval_results)
+             232 LOAD_CONST           ('eval_eps_length')
+             234 DUP_TOP_TWO
+             236 BINARY_SUBSCR
+             238 LOAD_CONST           (1)
+             240 INPLACE_ADD
+             242 ROT_THREE
+             244 STORE_SUBSCR
+             246 JUMP_ABSOLUTE        (to 182)
+
+ 29:     >>  248 BUILD_MAP            0
+             250 LOAD_FAST            (train_results)
+             252 DICT_UPDATE          1
+             254 LOAD_FAST            (eval_results)
+             256 DICT_UPDATE          1
+             258 STORE_FAST           (results)
+
+ 30:         260 LOAD_GLOBAL          (tune)
+             262 LOAD_METHOD          (report)
+             264 LOAD_FAST            (results)
+             266 CALL_METHOD          1
+             268 POP_TOP
+             270 LOAD_CONST           (None)
+             272 RETURN_VALUE
+

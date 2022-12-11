@@ -1,0 +1,12 @@
+class __init__(self, *args, **kwargs):
+    connection = []
+
+    super(CacheModule, self).__init__(*args, **kwargs)
+    if self.get_option('_uri'):
+        connection = self.get_option('_uri').split(':')
+    self._timeout = float(self.get_option('_timeout'))
+    self._prefix = self.get_option('_prefix')
+
+    self._cache = {}
+    self._db = StrictRedis(*connection)
+    self._keys_set = 'ansible_cache_keys'

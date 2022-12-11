@@ -1,0 +1,123 @@
+# pydisasm version 5.0.11
+# Python bytecode 3.9 (3425)
+# Disassembled from Python 3.9.6 (default, Aug 17 2021, 15:37:33) 
+# [GCC 10.2.1 20210110]
+# Timestamp in code: 1660247214 (2022-08-11 19:46:54)
+# Source code size mod 2**32: 680 bytes
+# Method Name:       <module>
+# Filename:          testbed_py/segment.py
+# Argument count:    0
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  0
+# Stack size:        4
+# Flags:             0x00000040 (NOFREE)
+# First Line:        2
+# Constants:
+#    0: 'Segment'
+#    1: ('segments', 'return')
+#    2: <code object remove_color at 0x7f1072c387c0, file "testbed_py/segment.py", line 2>
+#    3: 'remove_color'
+#    4: None
+# Names:
+#    0: classmethod
+#    1: Iterable
+#    2: remove_color
+  2:           0 LOAD_NAME            (classmethod)
+
+  3:           2 LOAD_NAME            (Iterable)
+               4 LOAD_CONST           ('Segment')
+               6 BINARY_SUBSCR
+               8 LOAD_NAME            (Iterable)
+              10 LOAD_CONST           ('Segment')
+              12 BINARY_SUBSCR
+              14 LOAD_CONST           (('segments', 'return'))
+              16 BUILD_CONST_KEY_MAP  2
+              18 LOAD_CONST           (<code object remove_color at 0x7f1072c387c0, file "testbed_py/segment.py", line 2>)
+              20 LOAD_CONST           ('remove_color')
+              22 MAKE_FUNCTION        (annotation)
+              24 CALL_FUNCTION        1
+              26 STORE_NAME           (remove_color)
+              28 LOAD_CONST           (None)
+              30 RETURN_VALUE
+
+
+# Method Name:       remove_color
+# Filename:          testbed_py/segment.py
+# Argument count:    2
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  7
+# Stack size:        5
+# Flags:             0x00000063 (NOFREE | GENERATOR | NEWLOCALS | OPTIMIZED)
+# First Line:        2
+# Constants:
+#    0: 'Remove all color from an iterable of segments.\n\n    Args:\n        segments (Iterable[Segment]): An iterable segments.\n\n    Yields:\n        Segment: Segments with colorless style.\n    '
+#    1: None
+# Names:
+#    0: get
+#    1: without_color
+# Varnames:
+#	cls, segments, cache, text, style, control, colorless_style
+# Positional arguments:
+#	cls, segments
+# Local variables:
+#    2: cache
+#    3: text
+#    4: style
+#    5: control
+#    6: colorless_style
+ 13:           0 BUILD_MAP            0
+               2 STORE_FAST           (cache)
+
+ 14:           4 LOAD_FAST            (segments)
+               6 GET_ITER
+         >>    8 FOR_ITER             (to 86)
+              10 UNPACK_SEQUENCE      3
+              12 STORE_FAST           (text)
+              14 STORE_FAST           (style)
+              16 STORE_FAST           (control)
+
+ 15:          18 LOAD_FAST            (style)
+              20 POP_JUMP_IF_FALSE    (to 70)
+
+ 16:          22 LOAD_FAST            (cache)
+              24 LOAD_METHOD          (get)
+              26 LOAD_FAST            (style)
+              28 CALL_METHOD          1
+              30 STORE_FAST           (colorless_style)
+
+ 17:          32 LOAD_FAST            (colorless_style)
+              34 LOAD_CONST           (None)
+              36 IS_OP                (is)
+              38 POP_JUMP_IF_FALSE    (to 54)
+
+ 18:          40 LOAD_FAST            (style)
+              42 LOAD_ATTR            (without_color)
+              44 STORE_FAST           (colorless_style)
+
+ 19:          46 LOAD_FAST            (colorless_style)
+              48 LOAD_FAST            (cache)
+              50 LOAD_FAST            (style)
+              52 STORE_SUBSCR
+
+ 20:     >>   54 LOAD_FAST            (cls)
+              56 LOAD_FAST            (text)
+              58 LOAD_FAST            (colorless_style)
+              60 LOAD_FAST            (control)
+              62 CALL_FUNCTION        3
+              64 YIELD_VALUE
+              66 POP_TOP
+              68 JUMP_ABSOLUTE        (to 8)
+
+ 22:     >>   70 LOAD_FAST            (cls)
+              72 LOAD_FAST            (text)
+              74 LOAD_CONST           (None)
+              76 LOAD_FAST            (control)
+              78 CALL_FUNCTION        3
+              80 YIELD_VALUE
+              82 POP_TOP
+              84 JUMP_ABSOLUTE        (to 8)
+         >>   86 LOAD_CONST           (None)
+              88 RETURN_VALUE
+

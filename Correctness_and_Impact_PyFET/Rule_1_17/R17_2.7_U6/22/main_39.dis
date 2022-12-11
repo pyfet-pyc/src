@@ -1,0 +1,924 @@
+# pydisasm version 5.0.11
+# Python bytecode 3.9 (3425)
+# Disassembled from Python 3.9.6 (default, Aug 17 2021, 15:37:33) 
+# [GCC 10.2.1 20210110]
+# Timestamp in code: 1660361333 (2022-08-13 03:28:53)
+# Source code size mod 2**32: 1852 bytes
+# Method Name:       <module>
+# Filename:          testbed_py/diff_shades_gha_helper.py
+# Argument count:    0
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  0
+# Stack size:        3
+# Flags:             0x00000040 (NOFREE)
+# First Line:        2
+# Constants:
+#    0: ('push', 'pull_request')
+#    1: None
+#    2: ('event', 'return')
+#    3: <code object config at 0x7f940a6aa7c0, file "testbed_py/diff_shades_gha_helper.py", line 2>
+#    4: 'config'
+# Names:
+#    0: Literal
+#    1: config
+  2:           0 LOAD_NAME            (Literal)
+               2 LOAD_CONST           (('push', 'pull_request'))
+               4 BINARY_SUBSCR
+               6 LOAD_CONST           (None)
+               8 LOAD_CONST           (('event', 'return'))
+              10 BUILD_CONST_KEY_MAP  2
+              12 LOAD_CONST           (<code object config at 0x7f940a6aa7c0, file "testbed_py/diff_shades_gha_helper.py", line 2>)
+              14 LOAD_CONST           ('config')
+              16 MAKE_FUNCTION        (annotation)
+              18 STORE_NAME           (config)
+              20 LOAD_CONST           (None)
+              22 RETURN_VALUE
+
+
+# Method Name:       config
+# Filename:          testbed_py/diff_shades_gha_helper.py
+# Argument count:    1
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  14
+# Stack size:        7
+# Flags:             0x00000043 (NOFREE | NEWLOCALS | OPTIMIZED)
+# First Line:        2
+# Constants:
+#    0: None
+#    1: 0
+#    2: 'push'
+#    3: 'preview-changes'
+#    4: '--force-preview-style'
+#    5: ('mode', 'force-flag')
+#    6: 'git checkout '
+#    7: 'GITHUB_SHA'
+#    8: 'main-'
+#    9: 'pull_request'
+#   10: 'assert-no-changes'
+#   11: '--force-stable-style'
+#   12: 'GITHUB_REF'
+#   13: 10
+#   14: -6
+#   15: 'pr-'
+#   16: '-'
+#   17: 'gh pr checkout '
+#   18: ' && git merge origin/main'
+#   19: 'mode'
+#   20: '.json'
+#   21: 'baseline-analysis'
+#   22: 'baseline-setup-cmd'
+#   23: 'target-analysis'
+#   24: 'target-setup-cmd'
+#   25: 'baseline-cache-key'
+#   26: 'baseline-sha'
+#   27: 'target-sha'
+# Names:
+#    0: diff_shades
+#    1: str
+#    2: get_pypi_version
+#    3: os
+#    4: getenv
+#    5: SHA_LENGTH
+#    6: get_main_revision
+#    7: int
+#    8: get_pr_revision
+#    9: platform
+#   10: system
+#   11: python_version
+#   12: __version__
+# Varnames:
+#	event, diff_shades, jobs, baseline_name, baseline_cmd, target_rev, target_name, target_cmd, baseline_rev, pr_ref, pr_num, pr_rev, env, entry
+# Positional arguments:
+#	event
+# Local variables:
+#    1: diff_shades
+#    2: jobs
+#    3: baseline_name
+#    4: baseline_cmd
+#    5: target_rev
+#    6: target_name
+#    7: target_cmd
+#    8: baseline_rev
+#    9: pr_ref
+#   10: pr_num
+#   11: pr_rev
+#   12: env
+#   13: entry
+  3:           0 LOAD_CONST           (0)
+               2 LOAD_CONST           (None)
+               4 IMPORT_NAME          (diff_shades)
+               6 STORE_FAST           (diff_shades)
+
+  5:           8 LOAD_FAST            (event)
+              10 LOAD_CONST           ('push')
+              12 COMPARE_OP           (==)
+              14 POP_JUMP_IF_FALSE    (to 94)
+
+  6:          16 LOAD_CONST           ('preview-changes')
+              18 LOAD_CONST           ('--force-preview-style')
+              20 LOAD_CONST           (('mode', 'force-flag'))
+              22 BUILD_CONST_KEY_MAP  2
+              24 BUILD_LIST           1
+              26 STORE_FAST           (jobs)
+
+  8:          28 LOAD_GLOBAL          (str)
+              30 LOAD_GLOBAL          (get_pypi_version)
+              32 CALL_FUNCTION        0
+              34 CALL_FUNCTION        1
+              36 STORE_FAST           (baseline_name)
+
+  9:          38 LOAD_CONST           ('git checkout ')
+              40 LOAD_FAST            (baseline_name)
+              42 FORMAT_VALUE         0
+              44 BUILD_STRING         2
+              46 STORE_FAST           (baseline_cmd)
+
+ 10:          48 LOAD_GLOBAL          (os)
+              50 LOAD_METHOD          (getenv)
+              52 LOAD_CONST           ('GITHUB_SHA')
+              54 CALL_METHOD          1
+              56 STORE_FAST           (target_rev)
+
+ 11:          58 LOAD_FAST            (target_rev)
+              60 LOAD_CONST           (None)
+              62 IS_OP                (is not)
+              64 POP_JUMP_IF_FALSE    (to 224)
+
+ 12:          66 LOAD_CONST           ('main-')
+              68 LOAD_FAST            (target_rev)
+              70 LOAD_CONST           (None)
+              72 LOAD_GLOBAL          (SHA_LENGTH)
+              74 BUILD_SLICE          2
+              76 BINARY_SUBSCR
+              78 BINARY_ADD
+              80 STORE_FAST           (target_name)
+
+ 13:          82 LOAD_CONST           ('git checkout ')
+              84 LOAD_FAST            (target_rev)
+              86 FORMAT_VALUE         0
+              88 BUILD_STRING         2
+              90 STORE_FAST           (target_cmd)
+              92 JUMP_FORWARD         (to 224)
+
+ 15:     >>   94 LOAD_FAST            (event)
+              96 LOAD_CONST           ('pull_request')
+              98 COMPARE_OP           (==)
+             100 POP_JUMP_IF_FALSE    (to 224)
+
+ 17:         102 LOAD_CONST           ('preview-changes')
+             104 LOAD_CONST           ('--force-preview-style')
+             106 LOAD_CONST           (('mode', 'force-flag'))
+             108 BUILD_CONST_KEY_MAP  2
+
+ 18:         110 LOAD_CONST           ('assert-no-changes')
+             112 LOAD_CONST           ('--force-stable-style')
+             114 LOAD_CONST           (('mode', 'force-flag'))
+             116 BUILD_CONST_KEY_MAP  2
+
+ 16:         118 BUILD_LIST           2
+             120 STORE_FAST           (jobs)
+
+ 21:         122 LOAD_GLOBAL          (get_main_revision)
+             124 CALL_FUNCTION        0
+             126 STORE_FAST           (baseline_rev)
+
+ 22:         128 LOAD_CONST           ('main-')
+             130 LOAD_FAST            (baseline_rev)
+             132 LOAD_CONST           (None)
+             134 LOAD_GLOBAL          (SHA_LENGTH)
+             136 BUILD_SLICE          2
+             138 BINARY_SUBSCR
+             140 BINARY_ADD
+             142 STORE_FAST           (baseline_name)
+
+ 23:         144 LOAD_CONST           ('git checkout ')
+             146 LOAD_FAST            (baseline_rev)
+             148 FORMAT_VALUE         0
+             150 BUILD_STRING         2
+             152 STORE_FAST           (baseline_cmd)
+
+ 24:         154 LOAD_GLOBAL          (os)
+             156 LOAD_METHOD          (getenv)
+             158 LOAD_CONST           ('GITHUB_REF')
+             160 CALL_METHOD          1
+             162 STORE_FAST           (pr_ref)
+
+ 26:         164 LOAD_GLOBAL          (int)
+             166 LOAD_FAST            (pr_ref)
+             168 LOAD_CONST           (10)
+             170 LOAD_CONST           (-6)
+             172 BUILD_SLICE          2
+             174 BINARY_SUBSCR
+             176 CALL_FUNCTION        1
+             178 STORE_FAST           (pr_num)
+
+ 27:         180 LOAD_GLOBAL          (get_pr_revision)
+             182 LOAD_FAST            (pr_num)
+             184 CALL_FUNCTION        1
+             186 STORE_FAST           (pr_rev)
+
+ 28:         188 LOAD_CONST           ('pr-')
+             190 LOAD_FAST            (pr_num)
+             192 FORMAT_VALUE         0
+             194 LOAD_CONST           ('-')
+             196 LOAD_FAST            (pr_rev)
+             198 LOAD_CONST           (None)
+             200 LOAD_GLOBAL          (SHA_LENGTH)
+             202 BUILD_SLICE          2
+             204 BINARY_SUBSCR
+             206 FORMAT_VALUE         0
+             208 BUILD_STRING         4
+             210 STORE_FAST           (target_name)
+
+ 29:         212 LOAD_CONST           ('gh pr checkout ')
+             214 LOAD_FAST            (pr_num)
+             216 FORMAT_VALUE         0
+             218 LOAD_CONST           (' && git merge origin/main')
+             220 BUILD_STRING         3
+             222 STORE_FAST           (target_cmd)
+
+ 31:     >>  224 LOAD_GLOBAL          (platform)
+             226 LOAD_METHOD          (system)
+             228 CALL_METHOD          0
+             230 FORMAT_VALUE         0
+             232 LOAD_CONST           ('-')
+             234 LOAD_GLOBAL          (platform)
+             236 LOAD_METHOD          (python_version)
+             238 CALL_METHOD          0
+             240 FORMAT_VALUE         0
+             242 LOAD_CONST           ('-')
+             244 LOAD_FAST            (diff_shades)
+             246 LOAD_ATTR            (__version__)
+             248 FORMAT_VALUE         0
+             250 BUILD_STRING         5
+             252 STORE_FAST           (env)
+
+ 32:         254 LOAD_FAST            (jobs)
+             256 GET_ITER
+         >>  258 FOR_ITER             (to 384)
+             260 STORE_FAST           (entry)
+
+ 33:         262 LOAD_FAST            (entry)
+             264 LOAD_CONST           ('mode')
+             266 BINARY_SUBSCR
+             268 FORMAT_VALUE         0
+             270 LOAD_CONST           ('-')
+             272 LOAD_FAST            (baseline_name)
+             274 FORMAT_VALUE         0
+             276 LOAD_CONST           ('.json')
+             278 BUILD_STRING         4
+             280 LOAD_FAST            (entry)
+             282 LOAD_CONST           ('baseline-analysis')
+             284 STORE_SUBSCR
+
+ 34:         286 LOAD_FAST            (baseline_cmd)
+             288 LOAD_FAST            (entry)
+             290 LOAD_CONST           ('baseline-setup-cmd')
+             292 STORE_SUBSCR
+
+ 35:         294 LOAD_FAST            (entry)
+             296 LOAD_CONST           ('mode')
+             298 BINARY_SUBSCR
+             300 FORMAT_VALUE         0
+             302 LOAD_CONST           ('-')
+             304 LOAD_FAST            (target_name)
+             306 FORMAT_VALUE         0
+             308 LOAD_CONST           ('.json')
+             310 BUILD_STRING         4
+             312 LOAD_FAST            (entry)
+             314 LOAD_CONST           ('target-analysis')
+             316 STORE_SUBSCR
+
+ 36:         318 LOAD_FAST            (target_cmd)
+             320 LOAD_FAST            (entry)
+             322 LOAD_CONST           ('target-setup-cmd')
+             324 STORE_SUBSCR
+
+ 37:         326 LOAD_FAST            (env)
+             328 FORMAT_VALUE         0
+             330 LOAD_CONST           ('-')
+             332 LOAD_FAST            (baseline_name)
+             334 FORMAT_VALUE         0
+             336 LOAD_CONST           ('-')
+             338 LOAD_FAST            (entry)
+             340 LOAD_CONST           ('mode')
+             342 BINARY_SUBSCR
+             344 FORMAT_VALUE         0
+             346 BUILD_STRING         5
+             348 LOAD_FAST            (entry)
+             350 LOAD_CONST           ('baseline-cache-key')
+             352 STORE_SUBSCR
+
+ 38:         354 LOAD_FAST            (event)
+             356 LOAD_CONST           ('pull_request')
+             358 COMPARE_OP           (==)
+             360 EXTENDED_ARG         (256)
+             362 POP_JUMP_IF_FALSE    (to 258)
+
+ 40:         364 LOAD_FAST            (baseline_rev)
+             366 LOAD_FAST            (entry)
+             368 LOAD_CONST           ('baseline-sha')
+             370 STORE_SUBSCR
+
+ 41:         372 LOAD_FAST            (pr_rev)
+             374 LOAD_FAST            (entry)
+             376 LOAD_CONST           ('target-sha')
+             378 STORE_SUBSCR
+             380 EXTENDED_ARG         (256)
+             382 JUMP_ABSOLUTE        (to 258)
+         >>  384 LOAD_CONST           (None)
+             386 RETURN_VALUE
+
+# pydisasm version 5.0.11
+# Python bytecode 3.9 (3425)
+# Disassembled from Python 3.9.6 (default, Aug 17 2021, 15:37:33) 
+# [GCC 10.2.1 20210110]
+# Timestamp in code: 1660361288 (2022-08-13 03:28:08)
+# Source code size mod 2**32: 3395 bytes
+# Method Name:       <module>
+# Filename:          testbed_py/final.py
+# Argument count:    0
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  0
+# Stack size:        13
+# Flags:             0x00000040 (NOFREE)
+# First Line:        10
+# Constants:
+#    0: ('push', 'pull_request')
+#    1: None
+#    2: ('event', 'return')
+#    3: <code object config at 0x7f940a6aa7c0, file "testbed_py/final.py", line 10>
+#    4: 'config'
+#    5: 'comment-body'
+#    6: 'Generate the body for a summary PR comment.'
+#    7: ('help',)
+#    8: 'baseline'
+#    9: True
+#   10: ('exists', 'path_type')
+#   11: ('type',)
+#   12: 'target'
+#   13: 'baseline-sha'
+#   14: 'target-sha'
+#   15: 'pr-num'
+#   16: ('baseline', 'target', 'baseline_sha', 'target_sha', 'pr_num', 'return')
+#   17: <code object comment_body at 0x7f940a6aa920, file "testbed_py/final.py", line 48>
+#   18: 'comment_body'
+# Names:
+#    0: Literal
+#    1: config
+#    2: main
+#    3: command
+#    4: click
+#    5: argument
+#    6: Path
+#    7: int
+#    8: str
+#    9: comment_body
+ 10:           0 LOAD_NAME            (Literal)
+               2 LOAD_CONST           (('push', 'pull_request'))
+               4 BINARY_SUBSCR
+               6 LOAD_CONST           (None)
+               8 LOAD_CONST           (('event', 'return'))
+              10 BUILD_CONST_KEY_MAP  2
+              12 LOAD_CONST           (<code object config at 0x7f940a6aa7c0, file "testbed_py/final.py", line 10>)
+              14 LOAD_CONST           ('config')
+              16 MAKE_FUNCTION        (annotation)
+              18 STORE_NAME           (config)
+
+ 48:          20 LOAD_NAME            (main)
+              22 LOAD_ATTR            (command)
+              24 LOAD_CONST           ('comment-body')
+              26 LOAD_CONST           ('Generate the body for a summary PR comment.')
+              28 LOAD_CONST           (('help',))
+              30 CALL_FUNCTION_KW     (2 total positional and keyword args)
+
+ 49:          32 LOAD_NAME            (click)
+              34 LOAD_ATTR            (argument)
+              36 LOAD_CONST           ('baseline')
+              38 LOAD_NAME            (click)
+              40 LOAD_ATTR            (Path)
+              42 LOAD_CONST           (True)
+              44 LOAD_NAME            (Path)
+              46 LOAD_CONST           (('exists', 'path_type'))
+              48 CALL_FUNCTION_KW     (2 total positional and keyword args)
+              50 LOAD_CONST           (('type',))
+              52 CALL_FUNCTION_KW     (2 total positional and keyword args)
+
+ 50:          54 LOAD_NAME            (click)
+              56 LOAD_ATTR            (argument)
+              58 LOAD_CONST           ('target')
+              60 LOAD_NAME            (click)
+              62 LOAD_ATTR            (Path)
+              64 LOAD_CONST           (True)
+              66 LOAD_NAME            (Path)
+              68 LOAD_CONST           (('exists', 'path_type'))
+              70 CALL_FUNCTION_KW     (2 total positional and keyword args)
+              72 LOAD_CONST           (('type',))
+              74 CALL_FUNCTION_KW     (2 total positional and keyword args)
+
+ 51:          76 LOAD_NAME            (click)
+              78 LOAD_METHOD          (argument)
+              80 LOAD_CONST           ('baseline-sha')
+              82 CALL_METHOD          1
+
+ 52:          84 LOAD_NAME            (click)
+              86 LOAD_METHOD          (argument)
+              88 LOAD_CONST           ('target-sha')
+              90 CALL_METHOD          1
+
+ 53:          92 LOAD_NAME            (click)
+              94 LOAD_ATTR            (argument)
+              96 LOAD_CONST           ('pr-num')
+              98 LOAD_NAME            (int)
+             100 LOAD_CONST           (('type',))
+             102 CALL_FUNCTION_KW     (2 total positional and keyword args)
+
+ 54:         104 LOAD_NAME            (Path)
+             106 LOAD_NAME            (Path)
+             108 LOAD_NAME            (str)
+             110 LOAD_NAME            (str)
+             112 LOAD_NAME            (int)
+             114 LOAD_CONST           (None)
+             116 LOAD_CONST           (('baseline', 'target', 'baseline_sha', 'target_sha', 'pr_num', 'return'))
+             118 BUILD_CONST_KEY_MAP  6
+             120 LOAD_CONST           (<code object comment_body at 0x7f940a6aa920, file "testbed_py/final.py", line 48>)
+             122 LOAD_CONST           ('comment_body')
+             124 MAKE_FUNCTION        (annotation)
+             126 CALL_FUNCTION        1
+             128 CALL_FUNCTION        1
+             130 CALL_FUNCTION        1
+             132 CALL_FUNCTION        1
+             134 CALL_FUNCTION        1
+             136 CALL_FUNCTION        1
+             138 STORE_NAME           (comment_body)
+             140 LOAD_CONST           (None)
+             142 RETURN_VALUE
+
+
+# Method Name:       config
+# Filename:          testbed_py/final.py
+# Argument count:    1
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  14
+# Stack size:        7
+# Flags:             0x00000043 (NOFREE | NEWLOCALS | OPTIMIZED)
+# First Line:        10
+# Constants:
+#    0: None
+#    1: 0
+#    2: 'push'
+#    3: 'preview-changes'
+#    4: '--force-preview-style'
+#    5: ('mode', 'force-flag')
+#    6: 'git checkout '
+#    7: 'GITHUB_SHA'
+#    8: 'main-'
+#    9: 'pull_request'
+#   10: 'assert-no-changes'
+#   11: '--force-stable-style'
+#   12: 'GITHUB_REF'
+#   13: 10
+#   14: -6
+#   15: 'pr-'
+#   16: '-'
+#   17: 'gh pr checkout '
+#   18: ' && git merge origin/main'
+#   19: 'mode'
+#   20: '.json'
+#   21: 'baseline-analysis'
+#   22: 'baseline-setup-cmd'
+#   23: 'target-analysis'
+#   24: 'target-setup-cmd'
+#   25: 'baseline-cache-key'
+#   26: 'baseline-sha'
+#   27: 'target-sha'
+#   28: 'matrix'
+#   29: ('indent',)
+# Names:
+#    0: diff_shades
+#    1: str
+#    2: get_pypi_version
+#    3: os
+#    4: getenv
+#    5: SHA_LENGTH
+#    6: get_main_revision
+#    7: int
+#    8: get_pr_revision
+#    9: platform
+#   10: system
+#   11: python_version
+#   12: __version__
+#   13: set_output
+#   14: json
+#   15: dumps
+#   16: pprint
+# Varnames:
+#	event, diff_shades, jobs, baseline_name, baseline_cmd, target_rev, target_name, target_cmd, baseline_rev, pr_ref, pr_num, pr_rev, env, entry
+# Positional arguments:
+#	event
+# Local variables:
+#    1: diff_shades
+#    2: jobs
+#    3: baseline_name
+#    4: baseline_cmd
+#    5: target_rev
+#    6: target_name
+#    7: target_cmd
+#    8: baseline_rev
+#    9: pr_ref
+#   10: pr_num
+#   11: pr_rev
+#   12: env
+#   13: entry
+ 11:           0 LOAD_CONST           (0)
+               2 LOAD_CONST           (None)
+               4 IMPORT_NAME          (diff_shades)
+               6 STORE_FAST           (diff_shades)
+
+ 12:           8 LOAD_FAST            (event)
+              10 LOAD_CONST           ('push')
+              12 COMPARE_OP           (==)
+              14 POP_JUMP_IF_FALSE    (to 94)
+
+ 14:          16 LOAD_CONST           ('preview-changes')
+
+ 15:          18 LOAD_CONST           ('--force-preview-style')
+
+ 14:          20 LOAD_CONST           (('mode', 'force-flag'))
+              22 BUILD_CONST_KEY_MAP  2
+
+ 13:          24 BUILD_LIST           1
+              26 STORE_FAST           (jobs)
+
+ 16:          28 LOAD_GLOBAL          (str)
+              30 LOAD_GLOBAL          (get_pypi_version)
+              32 CALL_FUNCTION        0
+              34 CALL_FUNCTION        1
+              36 STORE_FAST           (baseline_name)
+
+ 17:          38 LOAD_CONST           ('git checkout ')
+              40 LOAD_FAST            (baseline_name)
+              42 FORMAT_VALUE         0
+              44 BUILD_STRING         2
+              46 STORE_FAST           (baseline_cmd)
+
+ 18:          48 LOAD_GLOBAL          (os)
+              50 LOAD_METHOD          (getenv)
+              52 LOAD_CONST           ('GITHUB_SHA')
+              54 CALL_METHOD          1
+              56 STORE_FAST           (target_rev)
+
+ 19:          58 LOAD_FAST            (target_rev)
+              60 LOAD_CONST           (None)
+              62 IS_OP                (is not)
+              64 POP_JUMP_IF_FALSE    (to 224)
+
+ 20:          66 LOAD_CONST           ('main-')
+              68 LOAD_FAST            (target_rev)
+              70 LOAD_CONST           (None)
+              72 LOAD_GLOBAL          (SHA_LENGTH)
+              74 BUILD_SLICE          2
+              76 BINARY_SUBSCR
+              78 BINARY_ADD
+              80 STORE_FAST           (target_name)
+
+ 21:          82 LOAD_CONST           ('git checkout ')
+              84 LOAD_FAST            (target_rev)
+              86 FORMAT_VALUE         0
+              88 BUILD_STRING         2
+              90 STORE_FAST           (target_cmd)
+              92 JUMP_FORWARD         (to 224)
+
+ 22:     >>   94 LOAD_FAST            (event)
+              96 LOAD_CONST           ('pull_request')
+              98 COMPARE_OP           (==)
+             100 POP_JUMP_IF_FALSE    (to 224)
+
+ 23:         102 LOAD_CONST           ('preview-changes')
+             104 LOAD_CONST           ('--force-preview-style')
+             106 LOAD_CONST           (('mode', 'force-flag'))
+             108 BUILD_CONST_KEY_MAP  2
+
+ 24:         110 LOAD_CONST           ('assert-no-changes')
+
+ 25:         112 LOAD_CONST           ('--force-stable-style')
+
+ 24:         114 LOAD_CONST           (('mode', 'force-flag'))
+             116 BUILD_CONST_KEY_MAP  2
+
+ 23:         118 BUILD_LIST           2
+             120 STORE_FAST           (jobs)
+
+ 26:         122 LOAD_GLOBAL          (get_main_revision)
+             124 CALL_FUNCTION        0
+             126 STORE_FAST           (baseline_rev)
+
+ 27:         128 LOAD_CONST           ('main-')
+             130 LOAD_FAST            (baseline_rev)
+             132 LOAD_CONST           (None)
+             134 LOAD_GLOBAL          (SHA_LENGTH)
+             136 BUILD_SLICE          2
+             138 BINARY_SUBSCR
+             140 BINARY_ADD
+             142 STORE_FAST           (baseline_name)
+
+ 28:         144 LOAD_CONST           ('git checkout ')
+             146 LOAD_FAST            (baseline_rev)
+             148 FORMAT_VALUE         0
+             150 BUILD_STRING         2
+             152 STORE_FAST           (baseline_cmd)
+
+ 29:         154 LOAD_GLOBAL          (os)
+             156 LOAD_METHOD          (getenv)
+             158 LOAD_CONST           ('GITHUB_REF')
+             160 CALL_METHOD          1
+             162 STORE_FAST           (pr_ref)
+
+ 30:         164 LOAD_GLOBAL          (int)
+             166 LOAD_FAST            (pr_ref)
+             168 LOAD_CONST           (10)
+             170 LOAD_CONST           (-6)
+             172 BUILD_SLICE          2
+             174 BINARY_SUBSCR
+             176 CALL_FUNCTION        1
+             178 STORE_FAST           (pr_num)
+
+ 31:         180 LOAD_GLOBAL          (get_pr_revision)
+             182 LOAD_FAST            (pr_num)
+             184 CALL_FUNCTION        1
+             186 STORE_FAST           (pr_rev)
+
+ 32:         188 LOAD_CONST           ('pr-')
+             190 LOAD_FAST            (pr_num)
+             192 FORMAT_VALUE         0
+             194 LOAD_CONST           ('-')
+             196 LOAD_FAST            (pr_rev)
+             198 LOAD_CONST           (None)
+             200 LOAD_GLOBAL          (SHA_LENGTH)
+             202 BUILD_SLICE          2
+             204 BINARY_SUBSCR
+             206 FORMAT_VALUE         0
+             208 BUILD_STRING         4
+             210 STORE_FAST           (target_name)
+
+ 33:         212 LOAD_CONST           ('gh pr checkout ')
+             214 LOAD_FAST            (pr_num)
+             216 FORMAT_VALUE         0
+             218 LOAD_CONST           (' && git merge origin/main')
+             220 BUILD_STRING         3
+             222 STORE_FAST           (target_cmd)
+
+ 34:     >>  224 LOAD_GLOBAL          (platform)
+             226 LOAD_METHOD          (system)
+             228 CALL_METHOD          0
+             230 FORMAT_VALUE         0
+             232 LOAD_CONST           ('-')
+             234 LOAD_GLOBAL          (platform)
+             236 LOAD_METHOD          (python_version)
+             238 CALL_METHOD          0
+             240 FORMAT_VALUE         0
+             242 LOAD_CONST           ('-')
+             244 LOAD_FAST            (diff_shades)
+             246 LOAD_ATTR            (__version__)
+             248 FORMAT_VALUE         0
+             250 BUILD_STRING         5
+             252 STORE_FAST           (env)
+
+ 35:         254 LOAD_FAST            (jobs)
+             256 GET_ITER
+         >>  258 FOR_ITER             (to 414)
+             260 STORE_FAST           (entry)
+
+ 36:         262 LOAD_FAST            (entry)
+             264 LOAD_CONST           ('mode')
+             266 BINARY_SUBSCR
+             268 FORMAT_VALUE         0
+             270 LOAD_CONST           ('-')
+             272 LOAD_FAST            (baseline_name)
+             274 FORMAT_VALUE         0
+             276 LOAD_CONST           ('.json')
+             278 BUILD_STRING         4
+             280 LOAD_FAST            (entry)
+             282 LOAD_CONST           ('baseline-analysis')
+             284 STORE_SUBSCR
+
+ 37:         286 LOAD_FAST            (baseline_cmd)
+             288 LOAD_FAST            (entry)
+             290 LOAD_CONST           ('baseline-setup-cmd')
+             292 STORE_SUBSCR
+
+ 38:         294 LOAD_FAST            (entry)
+             296 LOAD_CONST           ('mode')
+             298 BINARY_SUBSCR
+             300 FORMAT_VALUE         0
+             302 LOAD_CONST           ('-')
+             304 LOAD_FAST            (target_name)
+             306 FORMAT_VALUE         0
+             308 LOAD_CONST           ('.json')
+             310 BUILD_STRING         4
+             312 LOAD_FAST            (entry)
+             314 LOAD_CONST           ('target-analysis')
+             316 STORE_SUBSCR
+
+ 39:         318 LOAD_FAST            (target_cmd)
+             320 LOAD_FAST            (entry)
+             322 LOAD_CONST           ('target-setup-cmd')
+             324 STORE_SUBSCR
+
+ 40:         326 LOAD_FAST            (env)
+             328 FORMAT_VALUE         0
+             330 LOAD_CONST           ('-')
+             332 LOAD_FAST            (baseline_name)
+             334 FORMAT_VALUE         0
+             336 LOAD_CONST           ('-')
+             338 LOAD_FAST            (entry)
+             340 LOAD_CONST           ('mode')
+             342 BINARY_SUBSCR
+             344 FORMAT_VALUE         0
+             346 BUILD_STRING         5
+             348 LOAD_FAST            (entry)
+             350 LOAD_CONST           ('baseline-cache-key')
+             352 STORE_SUBSCR
+
+ 41:         354 LOAD_FAST            (event)
+             356 LOAD_CONST           ('pull_request')
+             358 COMPARE_OP           (==)
+             360 EXTENDED_ARG         (256)
+             362 POP_JUMP_IF_FALSE    (to 380)
+
+ 42:         364 LOAD_FAST            (baseline_rev)
+             366 LOAD_FAST            (entry)
+             368 LOAD_CONST           ('baseline-sha')
+             370 STORE_SUBSCR
+
+ 43:         372 LOAD_FAST            (pr_rev)
+             374 LOAD_FAST            (entry)
+             376 LOAD_CONST           ('target-sha')
+             378 STORE_SUBSCR
+
+ 44:     >>  380 LOAD_GLOBAL          (set_output)
+             382 LOAD_CONST           ('matrix')
+             384 LOAD_GLOBAL          (json)
+             386 LOAD_ATTR            (dumps)
+             388 LOAD_FAST            (jobs)
+             390 LOAD_CONST           (None)
+             392 LOAD_CONST           (('indent',))
+             394 CALL_FUNCTION_KW     (2 total positional and keyword args)
+             396 CALL_FUNCTION        2
+             398 POP_TOP
+
+ 45:         400 LOAD_GLOBAL          (pprint)
+             402 LOAD_METHOD          (pprint)
+             404 LOAD_FAST            (jobs)
+             406 CALL_METHOD          1
+             408 POP_TOP
+             410 EXTENDED_ARG         (256)
+             412 JUMP_ABSOLUTE        (to 258)
+         >>  414 LOAD_CONST           (None)
+             416 RETURN_VALUE
+
+
+# Method Name:       comment_body
+# Filename:          testbed_py/final.py
+# Argument count:    5
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  8
+# Stack size:        9
+# Flags:             0x00000043 (NOFREE | NEWLOCALS | OPTIMIZED)
+# First Line:        48
+# Constants:
+#    0: None
+#    1: '-m'
+#    2: 'diff_shades'
+#    3: '--no-color'
+#    4: 'compare'
+#    5: '--quiet'
+#    6: '--check'
+#    7: 'utf-8'
+#    8: ('stdout', 'encoding')
+#    9: '**diff-shades** reports zero changes comparing this PR ('
+#   10: ') to main ('
+#   11: ').\n\n---\n\n'
+#   12: '**diff-shades** results comparing this PR ('
+#   13: '). The full diff is [available in the logs]($job-diff-url) under the "'
+#   14: '" step.'
+#   15: '\n```text\n'
+#   16: '\n```\n'
+#   17: '[**What is this?**]('
+#   18: ') | [Workflow run]($workflow-run-url) | [diff-shades documentation](https://github.com/ichard26/diff-shades#readme)'
+#   19: '[INFO]: writing comment details to '
+# Names:
+#    0: sys
+#    1: executable
+#    2: str
+#    3: subprocess
+#    4: run
+#    5: PIPE
+#    6: returncode
+#    7: DIFF_STEP_NAME
+#    8: stdout
+#    9: strip
+#   10: DOCS_URL
+#   11: print
+#   12: COMMENT_FILE
+# Varnames:
+#	baseline, target, baseline_sha, target_sha, pr_num, cmd, proc, body
+# Positional arguments:
+#	baseline, target, baseline_sha, target_sha, pr_num
+# Local variables:
+#    5: cmd
+#    6: proc
+#    7: body
+ 56:           0 LOAD_GLOBAL          (sys)
+               2 LOAD_ATTR            (executable)
+               4 LOAD_CONST           ('-m')
+               6 LOAD_CONST           ('diff_shades')
+               8 LOAD_CONST           ('--no-color')
+
+ 57:          10 LOAD_CONST           ('compare')
+              12 LOAD_GLOBAL          (str)
+              14 LOAD_FAST            (baseline)
+              16 CALL_FUNCTION        1
+              18 LOAD_GLOBAL          (str)
+              20 LOAD_FAST            (target)
+              22 CALL_FUNCTION        1
+              24 LOAD_CONST           ('--quiet')
+              26 LOAD_CONST           ('--check')
+
+ 55:          28 BUILD_LIST           9
+              30 STORE_FAST           (cmd)
+
+ 58:          32 LOAD_GLOBAL          (subprocess)
+              34 LOAD_ATTR            (run)
+              36 LOAD_FAST            (cmd)
+              38 LOAD_GLOBAL          (subprocess)
+              40 LOAD_ATTR            (PIPE)
+              42 LOAD_CONST           ('utf-8')
+              44 LOAD_CONST           (('stdout', 'encoding'))
+              46 CALL_FUNCTION_KW     (3 total positional and keyword args)
+              48 STORE_FAST           (proc)
+
+ 59:          50 LOAD_FAST            (proc)
+              52 LOAD_ATTR            (returncode)
+              54 POP_JUMP_IF_TRUE     (to 76)
+
+ 60:          56 LOAD_CONST           ('**diff-shades** reports zero changes comparing this PR (')
+              58 LOAD_FAST            (target_sha)
+              60 FORMAT_VALUE         0
+              62 LOAD_CONST           (') to main (')
+              64 LOAD_FAST            (baseline_sha)
+              66 FORMAT_VALUE         0
+              68 LOAD_CONST           (').\n\n---\n\n')
+              70 BUILD_STRING         5
+              72 STORE_FAST           (body)
+              74 JUMP_FORWARD         (to 122)
+
+ 62:     >>   76 LOAD_CONST           ('**diff-shades** results comparing this PR (')
+              78 LOAD_FAST            (target_sha)
+              80 FORMAT_VALUE         0
+              82 LOAD_CONST           (') to main (')
+              84 LOAD_FAST            (baseline_sha)
+              86 FORMAT_VALUE         0
+              88 LOAD_CONST           ('). The full diff is [available in the logs]($job-diff-url) under the "')
+              90 LOAD_GLOBAL          (DIFF_STEP_NAME)
+              92 FORMAT_VALUE         0
+              94 LOAD_CONST           ('" step.')
+              96 BUILD_STRING         7
+              98 STORE_FAST           (body)
+
+ 63:         100 LOAD_FAST            (body)
+             102 LOAD_CONST           ('\n```text\n')
+             104 LOAD_FAST            (proc)
+             106 LOAD_ATTR            (stdout)
+             108 LOAD_METHOD          (strip)
+             110 CALL_METHOD          0
+             112 BINARY_ADD
+             114 LOAD_CONST           ('\n```\n')
+             116 BINARY_ADD
+             118 INPLACE_ADD
+             120 STORE_FAST           (body)
+
+ 64:     >>  122 LOAD_FAST            (body)
+             124 LOAD_CONST           ('[**What is this?**](')
+             126 LOAD_GLOBAL          (DOCS_URL)
+             128 FORMAT_VALUE         0
+             130 LOAD_CONST           (') | [Workflow run]($workflow-run-url) | [diff-shades documentation](https://github.com/ichard26/diff-shades#readme)')
+             132 BUILD_STRING         3
+             134 INPLACE_ADD
+             136 STORE_FAST           (body)
+
+ 65:         138 LOAD_GLOBAL          (print)
+             140 LOAD_CONST           ('[INFO]: writing comment details to ')
+             142 LOAD_GLOBAL          (COMMENT_FILE)
+             144 FORMAT_VALUE         0
+             146 BUILD_STRING         2
+             148 CALL_FUNCTION        1
+             150 POP_TOP
+             152 LOAD_CONST           (None)
+             154 RETURN_VALUE
+

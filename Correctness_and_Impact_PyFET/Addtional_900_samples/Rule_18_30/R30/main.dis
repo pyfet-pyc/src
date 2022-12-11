@@ -1,0 +1,166 @@
+# pydisasm version 5.0.11
+# Python bytecode 3.9 (3425)
+# Disassembled from Python 3.9.6 (default, Aug 17 2021, 15:37:33) 
+# [GCC 10.2.1 20210110]
+# Timestamp in code: 1660591772 (2022-08-15 19:29:32)
+# Source code size mod 2**32: 853 bytes
+# Method Name:       <module>
+# Filename:          14.py
+# Argument count:    0
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  0
+# Stack size:        2
+# Flags:             0x00000040 (NOFREE)
+# First Line:        1
+# Constants:
+#    0: <code object test_external at 0x7f1b97cda7c0, file "14.py", line 1>
+#    1: 'test_external'
+#    2: None
+# Names:
+#    0: test_external
+  1:           0 LOAD_CONST           (<code object test_external at 0x7f1b97cda7c0, file "14.py", line 1>)
+               2 LOAD_CONST           ('test_external')
+               4 MAKE_FUNCTION        (Neither defaults, keyword-only args, annotations, nor closures)
+               6 STORE_NAME           (test_external)
+               8 LOAD_CONST           (None)
+              10 RETURN_VALUE
+
+
+# Method Name:       test_external
+# Filename:          14.py
+# Argument count:    1
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  3
+# Stack size:        5
+# Flags:             0x00000043 (NOFREE | NEWLOCALS | OPTIMIZED)
+# First Line:        1
+# Constants:
+#    0: None
+#    1: 'dash'
+#    2: 'dash.development.base_component.ComponentRegistry.registry'
+#    3: frozenset({'dash.html', 'dash', 'dash.dcc'})
+#    4: 'dash.dcc._js_dist'
+#    5: 'dash.dcc.__version__'
+#    6: 'dash.html._js_dist'
+#    7: '1.0.0'
+#    8: 'tests/assets'
+#    9: 'load_after.+.js'
+#   10: ('assets_folder', 'assets_ignore')
+#   11: False
+#   12: ('https://external_javascript.js', 'https://external_css.css', 'https://component_library.bundle.js')
+# Names:
+#    0: ComponentRegistry
+#    1: registry
+#    2: patch
+#    3: _monkey_patched_js_dist
+#    4: dcc
+#    5: _js_dist
+#    6: __version__
+#    7: dash
+#    8: Dash
+#    9: __name__
+#   10: Markdown
+#   11: layout
+#   12: scripts
+#   13: config
+#   14: serve_locally
+#   15: _collect_and_register_resources
+#   16: get_all_scripts
+# Varnames:
+#	mocker, app, resource
+# Positional arguments:
+#	mocker
+# Local variables:
+#    1: app
+#    2: resource
+  2:           0 LOAD_CONST           ('dash')
+               2 LOAD_GLOBAL          (ComponentRegistry)
+               4 LOAD_ATTR            (registry)
+               6 CONTAINS_OP          (in)
+               8 POP_JUMP_IF_TRUE     (to 14)
+              10 LOAD_ASSERTION_ERROR
+              12 RAISE_VARARGS        (exception instance)
+
+  3:     >>   14 LOAD_FAST            (mocker)
+              16 LOAD_METHOD          (patch)
+              18 LOAD_CONST           ('dash.development.base_component.ComponentRegistry.registry')
+              20 CALL_METHOD          1
+              22 POP_TOP
+
+  4:          24 BUILD_SET            0
+              26 LOAD_CONST           (frozenset({'dash.html', 'dash', 'dash.dcc'}))
+              28 SET_UPDATE           1
+              30 LOAD_GLOBAL          (ComponentRegistry)
+              32 STORE_ATTR           (registry)
+
+  6:          34 LOAD_FAST            (mocker)
+              36 LOAD_METHOD          (patch)
+              38 LOAD_CONST           ('dash.dcc._js_dist')
+              40 CALL_METHOD          1
+              42 POP_TOP
+
+  7:          44 LOAD_FAST            (mocker)
+              46 LOAD_METHOD          (patch)
+              48 LOAD_CONST           ('dash.dcc.__version__')
+              50 CALL_METHOD          1
+              52 POP_TOP
+
+  8:          54 LOAD_FAST            (mocker)
+              56 LOAD_METHOD          (patch)
+              58 LOAD_CONST           ('dash.html._js_dist')
+              60 CALL_METHOD          1
+              62 POP_TOP
+
+  9:          64 LOAD_GLOBAL          (_monkey_patched_js_dist)
+              66 LOAD_GLOBAL          (dcc)
+              68 STORE_ATTR           (_js_dist)
+
+ 10:          70 LOAD_CONST           ('1.0.0')
+              72 LOAD_GLOBAL          (dcc)
+              74 STORE_ATTR           (__version__)
+
+ 12:          76 LOAD_GLOBAL          (dash)
+              78 LOAD_ATTR            (Dash)
+
+ 13:          80 LOAD_GLOBAL          (__name__)
+              82 LOAD_CONST           ('tests/assets')
+              84 LOAD_CONST           ('load_after.+.js')
+
+ 12:          86 LOAD_CONST           (('assets_folder', 'assets_ignore'))
+              88 CALL_FUNCTION_KW     (3 total positional and keyword args)
+              90 STORE_FAST           (app)
+
+ 15:          92 LOAD_GLOBAL          (dcc)
+              94 LOAD_METHOD          (Markdown)
+              96 CALL_METHOD          0
+              98 LOAD_FAST            (app)
+             100 STORE_ATTR           (layout)
+
+ 16:         102 LOAD_CONST           (False)
+             104 LOAD_FAST            (app)
+             106 LOAD_ATTR            (scripts)
+             108 LOAD_ATTR            (config)
+             110 STORE_ATTR           (serve_locally)
+
+ 18:         112 LOAD_FAST            (app)
+             114 LOAD_METHOD          (_collect_and_register_resources)
+             116 LOAD_FAST            (app)
+             118 LOAD_ATTR            (scripts)
+             120 LOAD_METHOD          (get_all_scripts)
+             122 CALL_METHOD          0
+             124 CALL_METHOD          1
+             126 STORE_FAST           (resource)
+
+ 20:         128 LOAD_FAST            (resource)
+             130 BUILD_LIST           0
+             132 LOAD_CONST           (('https://external_javascript.js', 'https://external_css.css', 'https://component_library.bundle.js'))
+             134 LIST_EXTEND          1
+             136 COMPARE_OP           (==)
+             138 POP_JUMP_IF_TRUE     (to 144)
+             140 LOAD_ASSERTION_ERROR
+             142 RAISE_VARARGS        (exception instance)
+         >>  144 LOAD_CONST           (None)
+             146 RETURN_VALUE
+

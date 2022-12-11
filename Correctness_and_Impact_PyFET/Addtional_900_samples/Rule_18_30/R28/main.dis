@@ -1,0 +1,79 @@
+# pydisasm version 5.0.11
+# Python bytecode 3.9 (3425)
+# Disassembled from Python 3.9.6 (default, Aug 17 2021, 15:37:33) 
+# [GCC 10.2.1 20210110]
+# Timestamp in code: 1660540267 (2022-08-15 05:11:07)
+# Source code size mod 2**32: 201 bytes
+# Method Name:       <module>
+# Filename:          16.py
+# Argument count:    0
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  0
+# Stack size:        2
+# Flags:             0x00000040 (NOFREE)
+# First Line:        1
+# Constants:
+#    0: <code object dispatch at 0x7f7aef3787c0, file "16.py", line 1>
+#    1: 'dispatch'
+#    2: None
+# Names:
+#    0: dispatch
+  1:           0 LOAD_CONST           (<code object dispatch at 0x7f7aef3787c0, file "16.py", line 1>)
+               2 LOAD_CONST           ('dispatch')
+               4 MAKE_FUNCTION        (Neither defaults, keyword-only args, annotations, nor closures)
+               6 STORE_NAME           (dispatch)
+               8 LOAD_CONST           (None)
+              10 RETURN_VALUE
+
+
+# Method Name:       dispatch
+# Filename:          16.py
+# Argument count:    2
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  4
+# Stack size:        4
+# Flags:             0x0000004f (NOFREE | VARKEYWORDS | VARARGS | NEWLOCALS | OPTIMIZED)
+# First Line:        1
+# Constants:
+#    0: None
+# Names:
+#    0: UserPagePermissionsProxy
+#    1: user
+#    2: can_remove_locks
+#    3: PermissionDenied
+#    4: super
+#    5: dispatch
+# Varnames:
+#	self, request, args, kwargs
+# Positional arguments:
+#	self, request
+# Local variables:
+#    2: args
+#    3: kwargs
+  2:           0 LOAD_GLOBAL          (UserPagePermissionsProxy)
+               2 LOAD_FAST            (request)
+               4 LOAD_ATTR            (user)
+               6 CALL_FUNCTION        1
+               8 LOAD_METHOD          (can_remove_locks)
+              10 CALL_METHOD          0
+              12 POP_JUMP_IF_TRUE     (to 18)
+
+  3:          14 LOAD_GLOBAL          (PermissionDenied)
+              16 RAISE_VARARGS        (exception instance)
+
+  4:     >>   18 LOAD_GLOBAL          (super)
+              20 CALL_FUNCTION        0
+              22 LOAD_ATTR            (dispatch)
+              24 LOAD_FAST            (request)
+              26 BUILD_LIST           1
+              28 LOAD_FAST            (args)
+              30 LIST_EXTEND          1
+              32 LIST_TO_TUPLE
+              34 BUILD_MAP            0
+              36 LOAD_FAST            (kwargs)
+              38 DICT_MERGE           1
+              40 CALL_FUNCTION_EX     (keyword and positional arguments)
+              42 RETURN_VALUE
+
